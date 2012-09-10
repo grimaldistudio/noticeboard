@@ -1,0 +1,5 @@
+/csv/*
+/assets/*
+/protected/runtime/*
+/protected/documents/*
+/protected/config/main.php
