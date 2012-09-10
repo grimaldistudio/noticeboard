@@ -52,10 +52,10 @@ return array(
 			'charset' => 'utf8',
 		),*/
             'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=noticeboard_sora',
+			'connectionString' => 'mysql:host=localhost;dbname=DBNAME',
 			'emulatePrepare' => true,
-			'username' => 'noticeboard_sora',
-			'password' => 'noticeboard_sora',
+			'username' => 'DBUSER',
+			'password' => 'DBPASSWORD',
 			'charset' => 'utf8',
 		),            
 		'errorHandler'=>array(
