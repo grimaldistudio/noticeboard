@@ -1,10 +1,14 @@
 <table class="table table-striped table-condensed document-item-view detail-view">
-    
+
+    <tr>
+        <td colspan="4"><label><?php echo Document::model()->getAttributeLabel('document_type_id'); ?>: <?php echo CHtml::encode($data->document_type?$data->document_type->name:'n/d'); ?></label></td>
+    </tr>    
+
     <tr>
         <td style="width: 20%"><label><?php echo Document::model()->getAttributeLabel('protocol_number'); ?></label></td>
         <td style="width: 30%"><p><?php echo CHtml::encode($data->protocol_number!==null?$data->protocol_number:'n/d'); ?></p></td>
-        <td style="width: 20%"><label><?php echo Document::model()->getAttributeLabel('document_type_id'); ?></label></td>
-        <td style="width: 30%"><p><?php echo CHtml::encode($data->document_type?$data->document_type->name:'n/d'); ?></p></td>
+        <td style="width: 20%"><label><?php echo Document::model()->getAttributeLabel('publication_number'); ?></label></td>
+        <td style="width: 30%"><p><?php echo CHtml::encode($data->publication_number!==null?$data->publication_number:'n/d'); ?></p></td>
     </tr>    
     
     <tr>
@@ -23,9 +27,9 @@
     
     <tr>
         <td style="width: 20%"><label><?php echo Document::model()->getAttributeLabel('publication_date_from'); ?></label></td>
-        <td style="width: 30%"><p><?php echo date('d-m-Y', strtotime($data->publication_date_from)); ?></p></td>
+        <td style="width: 30%"><p><?php echo $data->publication_date_from?date('d-m-Y', strtotime($data->publication_date_from)):'n/d'; ?></p></td>
         <td style="width: 20%"><label><?php echo Document::model()->getAttributeLabel('publication_date_to'); ?></label></td>
-        <td style="width: 30%"><p><?php echo date('d-m-Y', strtotime($data->publication_date_to)); ?></p></td>        
+        <td style="width: 30%"><p><?php echo $data->publication_date_to?date('d-m-Y', strtotime($data->publication_date_to)):'n/d'; ?></p></td>        
     </tr>
     
     <tr>

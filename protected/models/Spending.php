@@ -458,7 +458,7 @@ class Spending extends CActiveRecord{
                 $spending->receiver = $master_spending['receiver'];
                 $spending->attribution_norm = $master_spending['attribution_norm'];
                 $spending->attribution_mod = $master_spending['attribution_mod'];
-                $spending->spending_date = $master_spending['spending_date'];
+                $spending->spending_date = $master_spending['spending_date']!=''?$master_spending['spending_date']:new CDbExpression('NULL');
                 $spending->employee = $master_spending['employee'];
                 $spending->cv_name = $master_spending['cv_name'];
                 $spending->contract_name = $master_spending['contract_name'];

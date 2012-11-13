@@ -16,7 +16,7 @@ $this->widget('bootstrap.widgets.BootDetailView', array(
                         'title',
                         'receiver',
                         'amount' => array('label'=>$model->getAttributeLabel('amount'), 'type'=>'raw', 'value'=>$model->amount.' €'),
-                        'spending_date' => array('label'=>$model->getAttributeLabel('spending_date'), 'type'=>'datetime', 'value' => strtotime($model->spending_date)),
+                        'spending_date' => array('label'=>$model->getAttributeLabel('spending_date'), 'type'=>'datetime', 'value' => $model->spending_date?strtotime($model->spending_date):'n/d'),
                         'attribution_norm',
                         'attribution_mod',
                         'office_id' => array('label'=>$model->getAttributeLabel('office_id'), 'value' => $model->office?$model->office->name:'n/d'),

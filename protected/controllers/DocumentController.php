@@ -84,7 +84,10 @@ class DocumentController extends Controller{
     public function actionDownload()
     {
         $model = $this->loadModel();
-        $model->download();
+        if($model->sync_file==1)
+            $model->download();
+        else
+            throw new CHttpException(404, 'Il file non è disponibile per il download');
     }
     
     public function actionExport()

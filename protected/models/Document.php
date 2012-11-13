@@ -31,7 +31,8 @@ class Document extends CActiveRecord{
     public function rules()
     {
         return array(
-            array('subject,protocol_number,document_type_id,entity_id,proposer_service_id,act_number,publication_date_from,publication_date_to,act_date_from,act_date_to', 'safe', 'on'=>'search'),
+            array('subject,protocol_number,publication_number,document_type_id,entity_id,proposer_service_id,act_number,publication_date_from,publication_date_to,act_date_from,act_date_to', 'safe', 'on'=>'search'),
+            array('publication_date_from,publication_date_to,act_date', 'default', 'value'=>new CDbExpression('NULL'), 'setOnEmpty'=>true, 'on'=>'create,update'),
             array('publication_date_from', 'date', 'format'=>'dd/MM/yyyy', 'timestampAttribute'=>'publication_date_from', 'allowEmpty'=>true, 'on'=>'search'),
             array('publication_date_to', 'date', 'format'=>'dd/MM/yyyy', 'timestampAttribute'=>'publication_date_to', 'allowEmpty'=>true, 'on'=>'search'),            
             array('act_date_from', 'date', 'format'=>'dd/MM/yyyy', 'timestampAttribute'=>'act_date_from', 'allowEmpty'=>true, 'on'=>'search'),
@@ -61,6 +62,7 @@ class Document extends CActiveRecord{
             'subject' => 'Oggetto',
             'entity_id' => 'Ente',
             'protocol_number' => 'Numero protocollo',
+            'publication_number' => 'Numero di pubblicazione',
             'act_number' => 'Numero atto',
             'act_date' => 'Data atto',
             'publication_date_from' => 'Inizio pubblicazione',
@@ -130,6 +132,7 @@ class Document extends CActiveRecord{
         $criteria->compare('act_number', $this->act_number, true);
         $criteria->compare('subject',$this->subject,true);
         $criteria->compare('protocol_number', $this->protocol_number, true);
+        $criteria->compare('publication_number', $this->publication_number, true);
         $criteria->compare('document_type_id', $this->document_type_id);
         
         if($this->entity_id==0)
@@ -360,18 +363,21 @@ class Document extends CActiveRecord{
             if($document)
             {
                 // update document
+                $document->scenario = 'update';
                 $document->protocol_number = $master_document['identifier'];
                 $document->document_type_id = $document_type_value;
                 $document->proposer_service_id = $proposer_service_value;
                 $document->entity_id = $entity_value;
                 $document->subject = $master_document['name'];
+                $document->publication_number = $master_document['publication_number'];
+                $document->sync_file = $master_document['sync_file'];                
                 $document->description  = $master_document['description'];
                 $document->status = $master_document['status'];
                 $document->relative_path = $master_document['relative_path'];
                 $document->act_number = $master_document['act_number'];
-                $document->act_date = $master_document['act_date'];
-                $document->publication_date_from = $master_document['publication_date_from'];
-                $document->publication_date_to = $master_document['publication_date_to'];
+                $document->act_date = $master_document['act_date']!=''?$master_document['act_date']:new CDbExpression('NULL');
+                $document->publication_date_from = $master_document['publication_date_from']!=''?$master_document['publication_date_from']:new CDbExpression('NULL');
+                $document->publication_date_to = $master_document['publication_date_to']!=''?$master_document['publication_date_to']:new CDbExpression('NULL');
                 $document->last_updated = new CDbExpression('CURRENT_TIMESTAMP'); 
             }
             else
@@ -383,14 +389,16 @@ class Document extends CActiveRecord{
                 $document->document_type_id = $document_type_value;
                 $document->proposer_service_id = $proposer_service_value;
                 $document->entity_id = $entity_value;
+                $document->publication_number = $master_document['publication_number'];
+                $document->sync_file = $master_document['sync_file'];                 
                 $document->subject = $master_document['name'];
                 $document->description  = $master_document['description'];
                 $document->status = ($master_document['status']==1 && $master_document['publication_requested']==1)?self::ENABLED:self::DISABLED;
                 $document->relative_path = $master_document['relative_path'];
                 $document->act_number = $master_document['act_number'];
-                $document->act_date = $master_document['act_date'];
-                $document->publication_date_from = $master_document['publication_date_from'];
-                $document->publication_date_to = $master_document['publication_date_to'];
+                $document->act_date = $master_document['act_date']!=''?$master_document['act_date']:new CDbExpression('NULL');
+                $document->publication_date_from = $master_document['publication_date_from']!=''?$master_document['publication_date_from']:new CDbExpression('NULL');
+                $document->publication_date_to = $master_document['publication_date_to']!=''?$master_document['publication_date_to']:new CDbExpression('NULL');
                 $document->date_created = new CDbExpression('CURRENT_TIMESTAMP');                 
                 $document->last_updated = new CDbExpression('CURRENT_TIMESTAMP'); 
             }
@@ -416,6 +424,8 @@ class Document extends CActiveRecord{
                                     'name', 
                                     'identifier', 
                                     'relative_path',
+                                    'publication_number',
+                                    'sync_file',
                                     'description', 
                                     'status', 
                                     'publication_date_from',

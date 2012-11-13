@@ -22,16 +22,20 @@
 <?php $form->errorSummary($model); ?> 
 <div style="padding: 20px">
     <div class="row">
-        <div class="span6">
-            <?php echo $form->textFieldRow($model, 'subject', array('class'=>'span11')); ?>
+        <div class="span3">
+            <?php echo $form->textFieldRow($model, 'subject'); ?>
         </div>
+
+        <div class="span3">
+            <?php echo $form->textFieldRow($model, 'protocol_number'); ?>
+        </div>        
     </div>
 
     <br/>
     
     <div class="row">
         <div class="span3">
-            <?php echo $form->textFieldRow($model, 'protocol_number'); ?>
+            <?php echo $form->textFieldRow($model, 'publication_number'); ?>
         </div>
 
         <div class="span3">

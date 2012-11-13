@@ -12,7 +12,7 @@
         <td style="width: 20%"><label><?php echo $model->getAttributeLabel('amount'); ?></label></td>
         <td style="width: 30%"><p><?php echo CHtml::encode($data->amount)  ?> €</p></td>
         <td style="width: 20%"><label><?php echo $model->getAttributeLabel('spending_date'); ?></label></td>
-        <td style="width: 30%"><p><?php echo date('d-m-Y', strtotime($data->spending_date)); ?></p></td>
+        <td style="width: 30%"><p><?php echo $data->spending_date?date('d-m-Y', strtotime($data->spending_date)):'n/d'; ?></p></td>
     </tr>
     
     <tr>
