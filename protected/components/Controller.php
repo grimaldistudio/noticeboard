@@ -64,6 +64,16 @@ class Controller extends CController
         );
         $items[] = $spending;
         
+
+        $opendata = array(
+            'label'=>'Open Data', 
+            'icon'=>'list-alt',
+            'url'=>array('opendata/index'), 
+            'active'=>$this->id=='opendata',
+            'class' => 'nav-header'
+        );
+        $items[] = $opendata;
+
         $this->menu = $items;
         return $this->menu;
     }

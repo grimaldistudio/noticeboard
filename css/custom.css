@@ -5,3 +5,11 @@
 #advaced_search div.row{
     margin-left: 0;
 }
+
+tr.open-data-header, tr.open-data-header > td {
+	background: #E0EDEF;
+}
+
+tr.open-data-header > td:hover {
+	background: #E0EDEF;
+}
