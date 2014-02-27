@@ -128,11 +128,11 @@ class ApiController extends Controller{
         $verb = Yii::app()->request->requestType;
         $uri = Yii::app()->request->requestUri;
         $headers = getallheaders();
-        $content_md5 = isset($headers['Content-MD5'])?$headers['Content-MD5']:'';
-        $date = isset($headers['Date'])?$headers['Date']:'';
-        $authentication = isset($headers['Authorization'])?$headers['Authorization']:'';
-
-        $error = "";
+        $content_md5 = isset($headers['content-md5'])?$headers['content-md5']:'';
+        $date = isset($headers['date'])?$headers['date']:'';
+        $authentication = isset($headers['authorization'])?$headers['authorization']:'';
+		
+		$error = "";
         if($authentication!='' && $date!='')
         {
             $time = strtotime($date);
