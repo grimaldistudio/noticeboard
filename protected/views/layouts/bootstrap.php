@@ -50,7 +50,7 @@
         <hr>
 
       <footer>
-        <p>&copy; <?php echo Yii::app()->params['entity']; ?> <?php echo date('Y'); ?> - Realizzato da Engineering Solution srl</p>
+        <p>&copy; <?php echo Yii::app()->params['entity']; ?> <?php echo date('Y'); ?> - Amministrazione trasparente</p>
       </footer>
 
     </div> <!-- /container -->

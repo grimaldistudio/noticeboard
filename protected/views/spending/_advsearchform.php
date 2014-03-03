@@ -13,10 +13,12 @@
         'afterValidate'=>'js:submitSpendingsearchform'
     )
 )); ?>
-    
+
+<!--    
 <div class="btn-toolbar">
     <?php echo CHtml::link('Esporta in CSV', array('/spending/export'), array('id'=>'csv-export', 'class'=>'btn btn-primary')); ?>
 </div>
+-->
     
 <?php $form->errorSummary($model); ?> 
 <div style="padding: 20px">
