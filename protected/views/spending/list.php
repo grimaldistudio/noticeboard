@@ -13,7 +13,7 @@ $this->pageTitle = "Elenco completo spese";
     'columns'=>array(
         array('name'=>'title'),
         array('name'=>'receiver'),
-        array('name'=>'amount'),
+        array('name'=>'amount', 'filter'=>false),
         array('name'=>'spending_date',
              'filter'=>false,
               'type' => 'datetime',
