@@ -15,7 +15,7 @@ else
     'template'=>"{items}\n{pager}",
     'itemsCssClass'=>'table table-striped table-bordered table-condensed',
     'columns'=>array(
-        array('name'=>'document_type_id'
+        array('name'=>'document_type_id',
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
               'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
              ),
