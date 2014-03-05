@@ -9,22 +9,33 @@ else
 
 <h1><?php echo $this->pageTitle; ?></h1>
 
-<?php $this->renderPartial('_advsearchform', array('model'=>$model)); ?>
-
-<?php
-
- $this->widget('bootstrap.widgets.BootListView', array(
-		'dataProvider'=> $model->search(),
-		'itemView'=>'_item',   // refers to the partial view named '_proficiency'
-                'template'=>"{sorter}\n{items}\n{pager}",        
-		'id' => 'documentslistview',
-		'sortableAttributes'=>array(
-				'protocol_number',
-                                'publication_date_from',
-                                'publication_date_to',
-                                'proposer_service_id',
-                                'document_type_id'
-		),
-    ));
- ?>   
-
+<?php $this->widget('bootstrap.widgets.BootGridView', array(
+    'id'=>'documents_gridview',
+    'dataProvider'=>$model->search(),
+    'template'=>"{items}\n{pager}",
+    'itemsCssClass'=>'table table-striped table-bordered table-condensed',
+    'columns'=>array(
+        array('name'=>'document_type_id'
+              'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
+              'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
+             ),
+        array('name'=>'protocol_number'),
+        array('name'=>'publication_number'),
+        array('name'=>'subject'),
+        array('name'=>'act_number'),
+        array('name'=>'entity_id',
+              'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
+              'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
+             ),
+        array('name'=>'proposer_service_id',
+              'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
+              'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
+             ),
+        array(
+            'class'=>'bootstrap.widgets.BootButtonColumn',
+            'htmlOptions'=>array('style'=>'width: 50px'),
+            'template'=>'{view}'
+        ),
+    ),
+    'filter'=>$model
+)); ?>
