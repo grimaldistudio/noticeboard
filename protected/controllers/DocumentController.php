@@ -81,9 +81,12 @@ $dataProvider = new CActiveDataProvider('Document', array(
 
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'id'            => 'table',
+      'datatableTemplate' => "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+                             'itemsCssClass'=>'table table-striped table-bordered table-hover',
  'dataProvider'  => $dataProvider,
  'ajaxUrl'       => $this->createUrl('/document/index'),
  'columns'       => $columns,
+    
     
 ));
 
