@@ -84,11 +84,7 @@ $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'dataProvider'  => $dataProvider,
  'ajaxUrl'       => $this->createUrl('/document/index'),
  'columns'       => $columns,
-    'EDataTables' => array(
-   
-    'cssFiles' => array('dataTables.foundation.css'),
-  
-),
+    
 ));
 
 if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
