@@ -444,6 +444,7 @@ class EDataTables extends CGridView
 		if (Yii::app()->getLanguage() !== 'en_us') {
 			// those are the defaults in the DataTables plugin JS source,
 			// we don't need to set them if app language is already en_us
+                    /*
 			$defaultOptions['oLanguage'] = array(
 				"oAria" => array(
 					"sSortAscending" => Yii::t('EDataTables.edt',": activate to sort column ascending"),
@@ -467,7 +468,7 @@ class EDataTables extends CGridView
 				"sSearch" => Yii::t('EDataTables.edt',"Search:"),
 				//"sUrl" => "",
 				"sZeroRecords" => Yii::t('EDataTables.edt',"No matching records found"),
-			);
+			);*/
 			$localeSettings = localeconv();
 			if (!empty($localeSettings['decimal_point'])) {
 				$defaultOptions['oLanguage']["sInfoThousands"] = $localeSettings['decimal_point'];
@@ -611,6 +612,9 @@ class EDataTables extends CGridView
 		}
 		$cs->registerScriptFile($baseScriptUrl.'/jquery.fnSetFilteringDelay.js');
 		$cs->registerScriptFile($baseScriptUrl.'/jdatatable.js',CClientScript::POS_END);
+                
+                $cs->registerScriptFile('http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Italian.json',CClientScript::POS_END);
+                
 		if ($fixedHeaders !== null) {
 			//$cs->registerScriptFile($baseScriptUrl.'/FixedHeader'.(YII_DEBUG ? '' : '.min').'.js');
 			//$cs->registerScriptFile($baseScriptUrl.'/FixedColumns'.(YII_DEBUG ? '' : '.min').'.js');
