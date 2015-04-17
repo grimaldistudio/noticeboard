@@ -82,7 +82,7 @@ $dataProvider = new CActiveDataProvider('Document', array(
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'id'            => 'table',
  'dataProvider'  => $dataProvider,
- 'ajaxUrl'       => $this->createUrl('/noticeboard/document/index'),
+ 'ajaxUrl'       => $this->createUrl('/document/index'),
  'columns'       => $columns,
 ));
 
