@@ -3,14 +3,14 @@
 else
     $this->breadcrumbs = array('Documenti');
 ?>
-<?php $this->pageTitle = "Elenco completo documenti"; ?>
+<?php $this->pageTitle = "Albo pretorio"; ?>
 <?php if(isset($category))
     $this->pageTitle = $category->name; ?>
 
-<h1><?php echo $this->pageTitle; ?></h1>
 
 
 <?php $widget->run(); ?>
+
 <?php/* $this->widget('bootstrap.widgets.BootGridView', array(
     'id'=>'documents_gridview',
     'dataProvider'=>$model->search(),

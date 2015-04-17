@@ -20,11 +20,4 @@
         </div><!--/span-->
 
       </div><!--/row-->
-      
 
-<?php
-  $baseUrl = Yii::app()->theme->baseUrl;
-  $cs = Yii::app()->getClientScript(); 
-  $cs->registerScriptFile('https://cdn.datatables.net/plug-ins/1.10.6/integration/foundation/dataTables.foundation.js',CClientScript::POS_HEAD);  
-  $cs->registerCssFile('https://cdn.datatables.net/plug-ins/1.10.6/integration/foundation/dataTables.foundation.css');
-  ?> 
