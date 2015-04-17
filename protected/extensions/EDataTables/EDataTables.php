@@ -44,7 +44,8 @@ class EDataTables extends CGridView
 	 * when rendering. Defaults to an HTML blank.
 	 */
 	public $nullDisplay=null;
-
+        
+        public $cssFile = false;
 	/**
 	 * @var string template used by dataTables, defaults are:
 	 * - for bootstrap theme: <><'row'<'span3'l><'dataTables_toolbar'><'pull-right'f>r>t<'row'<'span3'i><'pull-right'p>>
