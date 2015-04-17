@@ -41,7 +41,7 @@ class DocumentController extends Controller{
 
 $criteria = new CDbCriteria;
 if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
-    $criteria->addSearchCondition('name', $_REQUEST['sSearch'], true, 'AND', 'ILIKE');
+    $criteria->addSearchCondition('name', $_REQUEST['sSearch'], true, 'AND', 'LIKE');
 }
  
 $sort = new EDTSort('Document', $sortableColumnNamesArray);
