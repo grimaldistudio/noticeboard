@@ -4,6 +4,7 @@ else
     $this->breadcrumbs = array('Documenti');
 ?>
 <?php $this->pageTitle = "Albo pretorio"; ?>
+
 <?php if(isset($category))
     $this->pageTitle = $category->name; ?>
 
