@@ -87,10 +87,7 @@ $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
     'EDataTables' => array(
    
     'cssFiles' => array('dataTables.foundation.css'),
-    'jsFiles' => array(
-        'dataTables.foundation.js',
-        'jdatatable.js' => CClientScript::POS_END,
-    ),
+  
 ),
 ));
 
