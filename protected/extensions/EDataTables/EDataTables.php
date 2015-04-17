@@ -613,7 +613,6 @@ class EDataTables extends CGridView
 		$cs->registerScriptFile($baseScriptUrl.'/jquery.fnSetFilteringDelay.js');
 		$cs->registerScriptFile($baseScriptUrl.'/jdatatable.js',CClientScript::POS_END);
                 
-                $cs->registerScriptFile('http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Italian.json',CClientScript::POS_END);
                 
 		if ($fixedHeaders !== null) {
 			//$cs->registerScriptFile($baseScriptUrl.'/FixedHeader'.(YII_DEBUG ? '' : '.min').'.js');
