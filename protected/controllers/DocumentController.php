@@ -60,10 +60,12 @@ $dataProvider = new CActiveDataProvider('Document', array(
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
               'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
              ),
-        array('name'=>'protocol_number'),
+      //  array('name'=>'protocol_number'),
         array('name'=>'publication_number'),
         array('name'=>'subject'),
-        array('name'=>'act_number'),
+     'publication_date_from',
+      'publication_date_to',
+       // array('name'=>'act_number'),
         array('name'=>'entity_id',
               'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
               'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
