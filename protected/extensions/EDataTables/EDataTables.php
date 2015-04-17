@@ -596,10 +596,10 @@ class EDataTables extends CGridView
 				$cs->registerCoreScript('jquery.ui');
 			}
 		} else {
-			$cs->registerCssFile($baseScriptUrl.'/demo_table_jui.css');
-			$cs->registerCssFile($baseScriptUrl.'/jquery.dataTables_themeroller.css');
-			$cs->registerCssFile($baseScriptUrl.'/smoothness/jquery-ui-1.8.17.custom.css');
-			$cs->registerCoreScript('jquery.ui');
+			//$cs->registerCssFile($baseScriptUrl.'/demo_table_jui.css');
+			//$cs->registerCssFile($baseScriptUrl.'/jquery.dataTables_themeroller.css');
+			//$cs->registerCssFile($baseScriptUrl.'/smoothness/jquery-ui-1.8.17.custom.css');
+			//$cs->registerCoreScript('jquery.ui');
 		}
 		$cs->registerScriptFile($baseScriptUrl.'/jquery.dataTables'.(YII_DEBUG ? '' : '.min' ).'.js');
 		if ($configurable) {
