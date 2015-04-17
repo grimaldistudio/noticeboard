@@ -55,14 +55,14 @@ $dataProvider = new CActiveDataProvider('Document', array(
 ));
 
 
- $columns = array(
-        array('name'=>'document_type_id',
+ $columns = array(       
+      //  array('name'=>'protocol_number'),
+        array('name'=>'publication_number'),   
+        array('name'=>'subject'),
+      array('name'=>'document_type_id',
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
               'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
              ),
-      //  array('name'=>'protocol_number'),
-        array('name'=>'publication_number'),
-        array('name'=>'subject'),
      'publication_date_from',
       'publication_date_to',
        // array('name'=>'act_number'),
@@ -70,10 +70,10 @@ $dataProvider = new CActiveDataProvider('Document', array(
               'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
               'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
              ),
-        array('name'=>'proposer_service_id',
-              'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
-              'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
-             ),
+   //     array('name'=>'proposer_service_id',
+   //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
+   //           'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
+   //          ),
 //        array(
 //            'class'=>'bootstrap.widgets.BootButtonColumn',
 //            'htmlOptions'=>array('style'=>'width: 50px'),
