@@ -28,19 +28,77 @@ class DocumentController extends Controller{
     
     public function actionIndex()
     {
-        $model = new Document('search');
-        $model->unsetAttributes();
-        if(isset($_GET['Document']))
-            $model->attributes = $_GET['Document'];
+    
+//    $model = new Document('search');
+//        $model->unsetAttributes();
+//        if(isset($_GET['Document']))
+//            $model->attributes = $_GET['Document'];
 
-        $params =array(
-            'model'=>$model,
-        );
+//        $params =array(
+//            'model'=>$model,
+//        );
 
-        if(!isset($_GET['ajax']))
+
+$criteria = new CDbCriteria;
+if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
+    $criteria->addSearchCondition('textColumn', $_REQUEST['sSearch'], true, 'AND', 'ILIKE');
+}
+ 
+$sort = new EDTSort('Document', $sortableColumnNamesArray);
+$sort->defaultOrder = 'id';
+$pagination = new EDTPagination();
+ 
+$dataProvider = new CActiveDataProvider('Document', array(
+    'criteria'      => $criteria,
+    'pagination'    => $pagination,
+    'sort'          => $sort,
+));
+
+
+ $columns = array(
+        array('name'=>'document_type_id',
+              'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
+              'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
+             ),
+        array('name'=>'protocol_number'),
+        array('name'=>'publication_number'),
+        array('name'=>'subject'),
+        array('name'=>'act_number'),
+        array('name'=>'entity_id',
+              'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
+              'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
+             ),
+        array('name'=>'proposer_service_id',
+              'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
+              'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
+             ),
+//        array(
+//            'class'=>'bootstrap.widgets.BootButtonColumn',
+//            'htmlOptions'=>array('style'=>'width: 50px'),
+//            'template'=>'{view}'
+//        ),
+    );
+
+$widget=$this->createWidget('ext.EDataTables.EDataTables', array(
+ 'id'            => 'table',
+ 'dataProvider'  => $dataProvider,
+ 'ajaxUrl'       => $this->createUrl('/noticeboard/document/index'),
+ 'columns'       => $columns,
+));
+
+if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
+  $this->render('list', array('widget' => $widget,));
+  return;
+} else {
+  echo json_encode($widget->getFormattedData(intval($_REQUEST['sEcho'])));
+  Yii::app()->end();
+}
+
+
+        /*if(!isset($_GET['ajax']))
             $this->render('list', $params);
         else
-            $this->renderPartial('list', $params);                        
+            $this->renderPartial('list', $params);                        */
     }
     
     public function actionCategory($cat = 0)

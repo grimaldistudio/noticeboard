@@ -9,7 +9,9 @@ else
 
 <h1><?php echo $this->pageTitle; ?></h1>
 
-<?php $this->widget('bootstrap.widgets.BootGridView', array(
+
+<?php $widget->run(); ?>
+<?php/* $this->widget('bootstrap.widgets.BootGridView', array(
     'id'=>'documents_gridview',
     'dataProvider'=>$model->search(),
     'template'=>"{items}\n{pager}",
@@ -38,4 +40,4 @@ else
         ),
     ),
     'filter'=>$model
-)); ?>
+)); */?>

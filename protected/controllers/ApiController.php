@@ -16,7 +16,7 @@ class ApiController extends Controller{
     {
         return array(
             'requestType',
-            'apiAuth'
+//            'apiAuth'
         );
     }
     public function actionSyncdocument()
