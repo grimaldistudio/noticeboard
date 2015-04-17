@@ -13,7 +13,7 @@ else
 $this->widget('zii.widgets.grid.CGridView', array(
     'template'=>"{pager}\n{items}\n{pager}",
       'id'=>'table',
-    'itemsCssClass' => 'display dataset-table table-striped table-bordered',
+    'itemsCssClass' => 'display albopretorio-table table-striped table-bordered',
     'htmlOptions' => array('class'=>'display'),
     'dataProvider'=>$dataProvider,
      $columns = array(

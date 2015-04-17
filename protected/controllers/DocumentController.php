@@ -44,6 +44,8 @@ if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
     $criteria->addSearchCondition('textColumn', $_REQUEST['sSearch'], true, 'AND', 'ILIKE');
 }
  
+$sortableColumnNamesArray = array('id');
+
 $sort = new EDTSort('Document', $sortableColumnNamesArray);
 $sort->defaultOrder = 'id';
 $pagination = new EDTPagination();
