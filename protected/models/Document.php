@@ -166,6 +166,11 @@ class Document extends CActiveRecord{
     public function getPath()
     {
         return Yii::getPathOfAlias('documents').DIRECTORY_SEPARATOR.$this->relative_path.DIRECTORY_SEPARATOR.$this->getDocumentName();
+    }       
+    
+    public function getCachePath()
+    {
+        return Yii::getPathOfAlias('uploads').DIRECTORY_SEPARATOR.'cache'.DIRECTORY_SEPARATOR.$this->getRelativePath();
     }
     
     public function download($force_download = false)
