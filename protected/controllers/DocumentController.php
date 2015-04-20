@@ -51,6 +51,7 @@ class DocumentController extends Controller{
       //  array('name'=>'protocol_number'),
         array(
             'name'=>'publication_number',
+            'type'=>'raw',
             'value'=>'CHtml::link($data->publication_number,array("noticeboard/document","id"=>$data->id))'
             ),   
         array('name'=>'subject'),
