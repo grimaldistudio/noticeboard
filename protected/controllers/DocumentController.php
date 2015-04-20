@@ -175,8 +175,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
       public function actionPreviewdoc($page = 0)
     {
         $model = $this->loadModel();
-        if(!Yii::app()->user->hasDocumentPrivilege($model->id, AclManager::PERMISSION_READ))
-            throw new CHttpException(403, 'Azione non consentita');
+    
         $pm = new PreviewManager($model);
         header('Content-Type: image/jpeg');
         readfile($pm->getPreview(intval($page)));
