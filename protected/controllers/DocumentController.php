@@ -52,7 +52,7 @@ class DocumentController extends Controller{
         array(
             'name'=>'publication_number',
             'type'=>'raw',
-            'value'=>'CHtml::ajaxLink($data->publication_number,array("document/view","id"=>$data->id), array("update"=>"#detail"))'
+            'value'=>'CHtml::ajaxLink($data->publication_number,array("document/view","id"=>$data->id), array("update"=>"#detail","success"=>\'function(html){ jQuery("#table").hide(); }\'))'
             ),   
         array('name'=>'subject'),
       array('name'=>'document_type_id',
@@ -79,7 +79,7 @@ class DocumentController extends Controller{
 
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'id'            => 'table',
-      'datatableTemplate' => "<'row-fluid'<'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+      'datatableTemplate' => "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
                              'itemsCssClass'=>'table table-striped table-bordered table-hover',
  'dataProvider'  => $dataProvider,
  'ajaxUrl'       => $this->createUrl('/document/index'),
