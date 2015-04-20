@@ -28,7 +28,7 @@ class PreviewManager {
         $this->blank_thumb = Yii::getPathOfAlias('application').DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'blank_thumb.jpg';        
         $this->adapter = $adapter;
         $this->path = $adapter->getPath();
-        $this->cache_path = $adapter->getCachePath();
+     //   $this->cache_path = $adapter->getCachePath();
         $this->document_name = $adapter->getDocumentName();
     }
     
