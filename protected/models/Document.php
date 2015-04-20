@@ -158,6 +158,16 @@ class Document extends CActiveRecord{
         ));			
     }
     
+    public function getRelativePath()
+    {
+        if(is_null($this->relative_path))
+        {
+            $time = strtotime($this->date_created);
+            $this->relative_path = 'saved'.DIRECTORY_SEPARATOR.date('Y', $time).DIRECTORY_SEPARATOR.date('m', $time).DIRECTORY_SEPARATOR.date('d', $time);        
+        }
+        return $this->relative_path;
+    }
+    
     public function getDocumentName()
     {
         return 'documento_'.$this->link_id.'.pdf';
