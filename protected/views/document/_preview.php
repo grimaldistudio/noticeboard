@@ -5,7 +5,7 @@
     <div id="preview_inner_container" style="display:none">
         <img src="" alt="preview"  id="preview_img"/>
        <ul class="button-group radius">
-           <li>  <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl.'/images/misc/pdficon_large.png'), $full_size_url, array('class'=>'small button', 'target'=>'_blank')); ?>     <li>                           
+           <li>  <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl.'/images/misc/pdficon_large.png'), $full_size_url, array('class'=>'small button secondary', 'target'=>'_blank')); ?>     </li>                           
            <li> <?php echo CHtml::link('<i class="icon-backward"></i>', '#', array('class'=>'small button', 'id'=>'preview_back')); ?></li>
            <li>  <span id="current_page">1</span> di <span id="total_pages"><?php echo $total_pages; ?></span></li>
            <li><?php echo CHtml::link('<i class="icon-forward"></i>', '#', array('class'=>'small button', 'id'=>'preview_next')); ?>    </li>                    
