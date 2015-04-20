@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScript("previewer-controls", "
         return false;
     });
     
-    $document).on('click', '#preview_next', function (e){
+    $(document).on('click', '#preview_next', function (e){
         e.preventDefault();
         var current_page = parseInt($('#current_page').text());
         if(current_page>=parseInt($('#total_pages').text()))
