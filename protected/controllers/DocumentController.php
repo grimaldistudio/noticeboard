@@ -41,6 +41,7 @@ class DocumentController extends Controller{
 
 $criteria = new CDbCriteria;
 if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
+    $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'AND', 'LIKE');
     $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'AND', 'LIKE');
 }
  
