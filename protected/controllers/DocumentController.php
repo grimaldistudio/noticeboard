@@ -53,7 +53,7 @@ class DocumentController extends Controller{
         array(
             'name'=>'publication_number',
             'type'=>'raw',
-            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("update"=>"#detail") )',
+            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("update"=>"#detail","complete" => "function() { $(\'html body\').animate({scrollTop: $( \'html body\') ).offset().top }, 500); }") )',
             ),   
         array('name'=>'subject'),
        array('name'=>'act_date'),
@@ -81,8 +81,8 @@ class DocumentController extends Controller{
 
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'id'            => 'table',
-      'datatableTemplate' => "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-                             'itemsCssClass'=>'table table-striped table-bordered table-hover margin-top-20',
+      'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
+                             'itemsCssClass'=>'table table-striped table-bordered table-hover',
  'dataProvider'  => $dataProvider,
  'ajaxUrl'       => $this->createUrl('/document/index'),
      'pager'=>array('cssFile'=>false,
