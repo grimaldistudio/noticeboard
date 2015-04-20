@@ -171,4 +171,23 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         }
         $this->redirect(Yii::app()->baseUrl.'/csv/'.$filename);
     }
+    
+     public function actionPreviewpdf($document_name, $group_id = 0)
+    {
+        if($group_id>0)
+        {
+            $document_name = basename($document_name); // sanitize
+            if(!Yii::app()->user->belongsToGroup($group_id))
+                throw new CHttpException(403, 'Non autorizzato  ');
+            // group_folder
+            $group_folder_name = Yii::app()->user->getGroupFolderName($group_id);            
+            $dm = new DocumentManager($group_folder_name, $document_name, DocumentManager::GROUP_PENDING_TYPE);            
+        }
+        else
+        {
+            $dm = new DocumentManager(Yii::app()->user->id, $document_name, DocumentManager::USER_PENDING_TYPE);                        
+        }
+
+        $dm->download();
+    }
 }
