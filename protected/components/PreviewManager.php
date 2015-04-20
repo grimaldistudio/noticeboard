@@ -34,7 +34,6 @@ class PreviewManager {
     
     public function getPreview($page=0)
     {
-        die($this->path);
         if(file_exists($this->path))
         {
             if(!$this->isPagedCached($page))
