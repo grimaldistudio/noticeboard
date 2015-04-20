@@ -60,7 +60,7 @@ $dataProvider = new CActiveDataProvider('Document', array(
       //  array('name'=>'protocol_number'),
         array(
             'name'=>'publication_number',
-            'value'=>CHtml::link('$data->publication_number',array('controller/action','param1'=>'value1'))
+            'value'=>CHtml::link('$data->publication_number',array('noticeboard/document','id'=>'$data->id'))
             ),   
         array('name'=>'subject'),
       array('name'=>'document_type_id',
