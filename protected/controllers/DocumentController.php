@@ -61,7 +61,7 @@ $dataProvider = new CActiveDataProvider('Document', array(
         array('name'=>'publication_number'),   
         array('name'=>'subject'),
       array('name'=>'document_type_id',
-              'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
+              'value'=>CHtml::link('$data->document_type->name',array('controller/action')),
               'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
              ),
      'publication_date_from',
