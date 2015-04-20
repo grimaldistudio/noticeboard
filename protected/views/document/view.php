@@ -2,7 +2,7 @@
 <?php $this->pageTitle = "Albo pretorio"; ?>
 
 <div class="row">
-    <div class="large-8 small-12 columns">
+    <div class="large-7 small-12 columns">
         
         <h2><?php echo $model->subject; ?></h2>
 
@@ -29,7 +29,7 @@
         
     </div>
     
-    <div class="large-4 small-12 columns">
+    <div class="large-5 small-12 columns">
         
            <?php $this->renderPartial('_preview', array(
                                             'total_pages'=>2, 

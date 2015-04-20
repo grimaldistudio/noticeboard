@@ -1,14 +1,14 @@
-<div class="preview_container pull-left span5" >
+<div class="preview_container " >
     <div style="height:700px; width: 100%" id="preview_loader">
         <img src="<?php echo Yii::app()->baseUrl?>/images/ajax-loader.gif" />
     </div>
     <div id="preview_inner_container" style="display:none">
         <img src="" alt="preview"  id="preview_img"/>
-        <div id="preview-toolbar buttons-bar" style="text-align: center; width: 100%">
-            <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl.'/images/misc/pdficon_large.png'), $full_size_url, array('class'=>'btn', 'target'=>'_blank')); ?>                                
-            <?php echo CHtml::link('<i class="icon-backward"></i>', '#', array('class'=>'btn', 'id'=>'preview_back')); ?>
-            <span id="current_page">1</span> di <span id="total_pages"><?php echo $total_pages; ?></span>
-            <?php echo CHtml::link('<i class="icon-forward"></i>', '#', array('class'=>'btn', 'id'=>'preview_next')); ?>                        
+       <ul class="button-group">
+           <li>  <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl.'/images/misc/pdficon_large.png'), $full_size_url, array('class'=>'btn', 'target'=>'_blank')); ?>     <li>                           
+           <li> <?php echo CHtml::link('<i class="icon-backward"></i>', '#', array('class'=>'button-group', 'id'=>'preview_back')); ?></li>
+           <li>  <span id="current_page">1</span> di <span id="total_pages"><?php echo $total_pages; ?></span></li>
+           <li><?php echo CHtml::link('<i class="icon-forward"></i>', '#', array('class'=>'btn', 'id'=>'preview_next')); ?>    </li>                    
         </div>
     </div>
 </div>
