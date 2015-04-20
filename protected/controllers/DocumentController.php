@@ -28,39 +28,30 @@ class DocumentController extends Controller{
     
     public function actionIndex()
     {
-    
-//    $model = new Document('search');
-//        $model->unsetAttributes();
-//        if(isset($_GET['Document']))
-//            $model->attributes = $_GET['Document'];
 
-//        $params =array(
-//            'model'=>$model,
-//        );
+    $criteria = new CDbCriteria;
 
-
-$criteria = new CDbCriteria;
-if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
-    $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'AND', 'LIKE');
-    $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'AND', 'LIKE');
-}
+    if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
+        $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'AND', 'LIKE');
+        $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'AND', 'LIKE');
+    }
  
-$sort = new EDTSort('Document', $sortableColumnNamesArray);
-$sort->defaultOrder = 'id';
-$pagination = new EDTPagination();
- 
-$dataProvider = new CActiveDataProvider('Document', array(
-    'criteria'      => $criteria,
-    'pagination'    => $pagination,
-    'sort'          => $sort,
-));
+    $sort = new EDTSort('Document', $sortableColumnNamesArray);
+    $sort->defaultOrder = 'id';
+    $pagination = new EDTPagination();
+
+    $dataProvider = new CActiveDataProvider('Document', array(
+        'criteria'      => $criteria,
+        'pagination'    => $pagination,
+        'sort'          => $sort,
+    ));
 
 
  $columns = array(       
       //  array('name'=>'protocol_number'),
         array(
             'name'=>'publication_number',
-            'value'=>CHtml::link($data->publication_number,array('noticeboard/document','id'=>$data->id))
+            'value'=>'CHtml::link($data->publication_number,array("noticeboard/document","id"=>$data->id))'
             ),   
         array('name'=>'subject'),
       array('name'=>'document_type_id',
