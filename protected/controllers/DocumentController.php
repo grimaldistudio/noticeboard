@@ -38,6 +38,7 @@ class DocumentController extends Controller{
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
+    
     $pagination = new EDTPagination();
 
     $dataProvider = new CActiveDataProvider('Document', array(
