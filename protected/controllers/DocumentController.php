@@ -82,9 +82,18 @@ class DocumentController extends Controller{
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'id'            => 'table',
       'datatableTemplate' => "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-                             'itemsCssClass'=>'table table-striped table-bordered table-hover',
+                             'itemsCssClass'=>'table table-striped table-bordered table-hover margin-top-20',
  'dataProvider'  => $dataProvider,
  'ajaxUrl'       => $this->createUrl('/document/index'),
+     'pager'=>array('cssFile'=>false,
+                       'header'=>'',
+                       //'firstPageLabel'=>'&lt;&lt;',
+                      // 'prevPageLabel'=>'&lt;',
+                       //'nextPageLabel'=>'&gt;', 
+                       //'lastPageLabel'=>'&gt;&gt;',
+                       //'maxButtonCount'=>5,
+                       'class'=>'pagination'),
+    'pagerCssClass'=>'pagination pagination-centered', 
  'columns'       => $columns,
     
     
