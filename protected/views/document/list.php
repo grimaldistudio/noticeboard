@@ -11,6 +11,7 @@ else
 
 <?php $widget->run(); ?>
 
+<a name="detail-view"></a>
 <div id="detail"></div>
 
 <?php/* $this->widget('bootstrap.widgets.BootGridView', array(
