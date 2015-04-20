@@ -15,7 +15,7 @@ else
 
 <?php
 
-$cs->registerCSSFile('/css/custom.css');
+$cs->registerCSSFile('/css/custom-noticeboard.css');
 
 /* $this->widget('bootstrap.widgets.BootGridView', array(
     'id'=>'documents_gridview',
