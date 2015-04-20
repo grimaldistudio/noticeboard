@@ -11,6 +11,8 @@ else
 
 <?php $widget->run(); ?>
 
+<div id="detail"></div>
+
 <?php/* $this->widget('bootstrap.widgets.BootGridView', array(
     'id'=>'documents_gridview',
     'dataProvider'=>$model->search(),

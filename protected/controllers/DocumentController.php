@@ -52,7 +52,7 @@ class DocumentController extends Controller{
         array(
             'name'=>'publication_number',
             'type'=>'raw',
-            'value'=>'CHtml::ajaxLink($data->publication_number,array("document/view","id"=>$data->id), array("update"=>"#table"))'
+            'value'=>'CHtml::ajaxLink($data->publication_number,array("document/view","id"=>$data->id), array("update"=>"#detail"))'
             ),   
         array('name'=>'subject'),
       array('name'=>'document_type_id',
