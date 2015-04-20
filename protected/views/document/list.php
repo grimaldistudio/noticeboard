@@ -13,11 +13,7 @@ else
 
 <div id="detail"></div>
 
-<?php
-
-$cs->registerCSSFile('/css/custom-noticeboard.css');
-
-/* $this->widget('bootstrap.widgets.BootGridView', array(
+<?php/* $this->widget('bootstrap.widgets.BootGridView', array(
     'id'=>'documents_gridview',
     'dataProvider'=>$model->search(),
     'template'=>"{items}\n{pager}",
