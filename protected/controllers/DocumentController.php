@@ -58,10 +58,13 @@ $dataProvider = new CActiveDataProvider('Document', array(
 
  $columns = array(       
       //  array('name'=>'protocol_number'),
-        array('name'=>'publication_number'),   
+        array(
+            'name'=>'publication_number',
+            'value'=>CHtml::link('$data->publication_number',array('controller/action','param1'=>'value1'))
+            ),   
         array('name'=>'subject'),
       array('name'=>'document_type_id',
-              'value'=>CHtml::link('$data->document_type->name',array('controller/action')),
+              'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
               'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
              ),
      'publication_date_from',
