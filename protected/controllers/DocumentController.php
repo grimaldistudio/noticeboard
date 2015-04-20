@@ -52,7 +52,7 @@ class DocumentController extends Controller{
         array(
             'name'=>'publication_number',
             'type'=>'raw',
-            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("beforeSend" => "function() { jQuery("#table").hide();  }", "complete" => "function() { }", "update"=>"#detail") )',
+            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("beforeSend" => "function() { jQuery("#table").hide();  }", "complete" => "function() { jQuery("#detail").show(); }", "update"=>"#detail") )',
             ),   
         array('name'=>'subject'),
        array('name'=>'act_date'),
