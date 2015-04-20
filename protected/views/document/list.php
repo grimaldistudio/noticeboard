@@ -13,7 +13,11 @@ else
 
 <div id="detail"></div>
 
-<?php/* $this->widget('bootstrap.widgets.BootGridView', array(
+<?php
+
+$cs->registerCSSFile('/css/custom.css');
+
+/* $this->widget('bootstrap.widgets.BootGridView', array(
     'id'=>'documents_gridview',
     'dataProvider'=>$model->search(),
     'template'=>"{items}\n{pager}",
@@ -43,3 +47,4 @@ else
     ),
     'filter'=>$model
 )); */?>
+
