@@ -31,7 +31,7 @@ class Document extends CActiveRecord{
     public function rules()
     {
         return array(
-            array('subject,protocol_number,publication_number,document_type_id,entity_id,proposer_service_id,act_number,publication_date_from,publication_date_to,num_pages,act_date_from,act_date_to', 'safe', 'on'=>'search'),
+            array('subject,protocol_number,publication_number,document_type_id,entity_id,proposer_service_id,act_number,publication_date_from,publication_date_to,act_date_from,act_date_to', 'safe', 'on'=>'search'),
             array('publication_date_from,publication_date_to,act_date', 'default', 'value'=>new CDbExpression('NULL'), 'setOnEmpty'=>true, 'on'=>'create,update'),
             array('publication_date_from', 'date', 'format'=>'dd/MM/yyyy', 'timestampAttribute'=>'publication_date_from', 'allowEmpty'=>true, 'on'=>'search'),
             array('publication_date_to', 'date', 'format'=>'dd/MM/yyyy', 'timestampAttribute'=>'publication_date_to', 'allowEmpty'=>true, 'on'=>'search'),            
@@ -68,7 +68,7 @@ class Document extends CActiveRecord{
             'publication_date_from' => 'Inizio pubblicazione',
             'publication_date_to' => 'Fine pubblicazione',
             'description' => 'Descrizione',
-            'num_pages' => 'Numero di pagine',
+            //'num_pages' => 'Numero di pagine',
             'document_type_id' => 'Tipologia',
             'proposer_service_id' => 'Servizio proponente',
             'relative_path' => 'Percorso relativo',
@@ -134,7 +134,7 @@ class Document extends CActiveRecord{
             $criteria->addCondition("act_date<='". date('Y-m-d H:i:s', $this->act_date_to)."'");        
         
         $criteria->compare('act_number', $this->act_number, true);
-        $criteria->compare('num_pages', $this->num_pages, true);
+       // $criteria->compare('num_pages', $this->num_pages, true);
         $criteria->compare('subject',$this->subject,true);
         $criteria->compare('protocol_number', $this->protocol_number, true);
         $criteria->compare('publication_number', $this->publication_number, true);
