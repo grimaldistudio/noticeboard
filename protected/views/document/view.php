@@ -3,7 +3,7 @@
 <h1><?php echo $this->pageTitle; ?></h1>
 
 <?php
-$this->widget('bootstrap.widgets.BootDetailView', array(
+$this->widget('zii.widgets.CDetailView', array(
     'data'=>$model,
     'attributes'=>array(
                         'subject',
