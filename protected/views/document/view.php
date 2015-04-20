@@ -9,7 +9,7 @@
         <?php
         $this->widget('zii.widgets.CDetailView', array(
             'data'=>$model,
-            'itemsCssClass'=>'table table-striped table-condensed',
+            'itemCssClass'=>'table table-striped table-condensed',
             'attributes'=>array(
                                 'subject',
                                 'protocol_number', 
