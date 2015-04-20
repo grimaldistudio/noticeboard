@@ -121,7 +121,7 @@ class Document extends CActiveRecord{
         $criteria->with = array('entity', 'proposer_service', 'document_type');
         
         if(!$this->hasErrors('publication_date_from') && $this->publication_date_from)
-            $criteria->addCondition("publication_date_from>='".date('Y-m-d H:i:s', $this->publication_date_from)."'");
+            $criteria->addCondition("publication_date_from>='".date('Y-m-d ', $this->publication_date_from)."'");
         
         if(!$this->hasErrors('publication_date_to') && $this->publication_date_to)
             $criteria->addCondition("publication_date_to<='". date('Y-m-d H:i:s', $this->publication_date_to)."'");

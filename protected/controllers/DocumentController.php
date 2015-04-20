@@ -52,15 +52,16 @@ class DocumentController extends Controller{
         array(
             'name'=>'publication_number',
             'type'=>'raw',
-            'value'=>'CHtml::ajaxLink($data->publication_number,array("document/view","id"=>$data->id), array("update"=>"#detail","success"=>\'function(html){ jQuery("#table").hide(); }\'))'
+            'value'=>'CHtml::ajaxLink($data->publication_number,array("document/view","id"=>$data->id), array( "beforeSend" => "function() { jQuery("#table").hide();  }", "complete" => "function() { }".  "update"=>"#detail"}\'))'
             ),   
         array('name'=>'subject'),
+       array('name'=>'act_date'),
       array('name'=>'document_type_id',
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
               'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
              ),
-     'publication_date_from',
-      'publication_date_to',
+     //'publication_date_from',
+     // 'publication_date_to',
        // array('name'=>'act_number'),
         array('name'=>'entity_id',
               'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
