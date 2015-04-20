@@ -90,7 +90,10 @@ class Document extends CActiveRecord{
     
     public function getDocumentSize()
     {
+        if(is_file($this->getPath()))
         return sprintf("%.2f", filesize($this->getPath())/1000.0);
+        else
+            return false;
     }
     
     public function getStatusDesc()
