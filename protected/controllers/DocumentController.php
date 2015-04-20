@@ -136,7 +136,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
     public function actionView()
     {
-        //$this->layout = "bootstrap";
+        $this->layout = 'bootstrap_sidebar';
         $model = $this->loadModel();
         $this->render('view', array('model'=>$model));	        
     }

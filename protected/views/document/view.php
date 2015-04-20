@@ -1,6 +1,7 @@
 <?php $this->breadcrumbs = array($model->document_type->name => array('document/category', 'cat'=>$model->document_type_id),  'Dettaglio'); ?>
-<?php $this->pageTitle = "Vedi documento"; ?>
-<h1><?php echo $this->pageTitle; ?></h1>
+<?php $this->pageTitle = "Albo pretorio"; ?>
+
+<h2><?php echo $model->subject; ?></h2>
 
 <?php
 $this->widget('zii.widgets.CDetailView', array(
