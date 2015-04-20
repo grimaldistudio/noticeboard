@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * This is the model class for table "document".
+ *
+ * The followings are the available columns in table 'document':
+ * @property integer $num_pages
+ *
+ * @property Accessibilitymedia[] $accessibilitymedias
+ */
+
+
 class Document extends CActiveRecord{
     
     const ENABLED = 1;
@@ -431,7 +441,6 @@ class Document extends CActiveRecord{
                                     'publication_number',
                                     'sync_file',
                                     'description', 
-                                    'num_pages',
                                     'status', 
                                     'publication_date_from',
                                     'publication_date_to',
