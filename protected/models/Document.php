@@ -130,10 +130,10 @@ class Document extends CActiveRecord{
             $criteria->addCondition("publication_date_to<='". date('Y-m-d H:i:s', $this->publication_date_to)."'");
         
         if(!$this->hasErrors('act_date_from') && $this->act_date_from)
-            $criteria->addCondition("act_date>='".date('Y-m-d', $this->act_date_from)."'");
+            $criteria->addCondition("act_date>='".date('Y-m-d H:i:s', $this->act_date_from)."'");
         
         if(!$this->hasErrors('act_date_to') && $this->act_date_to)
-            $criteria->addCondition("act_date<='". date('Y-m-d', $this->act_date_to)."'");        
+            $criteria->addCondition("act_date<='". date('Y-m-d H:i:s', $this->act_date_to)."'");        
         
         $criteria->compare('act_number', $this->act_number, true);
        // $criteria->compare('num_pages', $this->num_pages, true);
@@ -476,6 +476,15 @@ class Document extends CActiveRecord{
         
         return $errors;
     }
+    
+     protected function afterFind()
+        {
+          $this->act_date = Yii::app()->locale->dateFormatter->format('dd/MM/y', $this->act_date);
+          //if(isset($this->date_ins)) { $this->date_ins=Yii::app()->locale->dateFormatter->formatDateTime($this->date_ins,'short','short'); }  
+          //if(isset($this->date_upg)) { $this->date_upg=Yii::app()->locale->dateFormatter->formatDateTime($this->date_upg,'short','short'); }           
+     
+          return parent::afterFind();
+        } 
     
     
 }
