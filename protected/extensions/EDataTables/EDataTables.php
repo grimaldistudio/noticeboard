@@ -488,7 +488,7 @@ class EDataTables extends CGridView
 				$options[$pagination->lengthVar]=$pagination->getPageSize();
 			}
 		}
-		if($this->bootstrap)
+		
 			$options['sPaginationType'] = 'bootstrap';
 		if ($this->datatableTemplate)
 			$options['sDom'] = $this->datatableTemplate;
