@@ -480,8 +480,8 @@ class Document extends CActiveRecord{
      protected function afterFind()
         {
           if(isset($this->act_date)) $this->act_date = Yii::app()->locale->dateFormatter->format('dd/MM/y', $this->act_date);
-          if(isset($this->publication_date_from)) $this->publication_date_from = Yii::app()->locale->dateFormatter->format('dd/MM/y H:i', $this->publication_date_from);
-          if(isset($this->publication_date_to)) $this->publication_date_to = Yii::app()->locale->dateFormatter->format('dd/MM/y H:i', $this->publication_date_to);     
+          //if(isset($this->publication_date_from)) $this->publication_date_from = Yii::app()->locale->dateFormatter->format('dd/MM/y H:i', $this->publication_date_from);
+         // if(isset($this->publication_date_to)) $this->publication_date_to = Yii::app()->locale->dateFormatter->format('dd/MM/y H:i', $this->publication_date_to);     
      
           return parent::afterFind();
         } 
