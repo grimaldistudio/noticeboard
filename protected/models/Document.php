@@ -479,9 +479,9 @@ class Document extends CActiveRecord{
     
      protected function afterFind()
         {
-          $this->act_date = Yii::app()->locale->dateFormatter->format('dd/MM/y', $this->act_date);
-          //if(isset($this->date_ins)) { $this->date_ins=Yii::app()->locale->dateFormatter->formatDateTime($this->date_ins,'short','short'); }  
-          //if(isset($this->date_upg)) { $this->date_upg=Yii::app()->locale->dateFormatter->formatDateTime($this->date_upg,'short','short'); }           
+          if(isset($this->act_date)) $this->act_date = Yii::app()->locale->dateFormatter->format('dd/MM/y', $this->act_date);
+          if(isset($this->publication_date_from)) $this->publication_date_from = Yii::app()->locale->dateFormatter->format('dd/MM/y H:i', $this->publication_date_from);
+          if(isset($this->publication_date_to)) $this->publication_date_to = Yii::app()->locale->dateFormatter->format('dd/MM/y H:i', $this->publication_date_to);     
      
           return parent::afterFind();
         } 
