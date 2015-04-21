@@ -7,7 +7,9 @@ else
 <?php if(isset($category))
     $this->pageTitle = $category->name; ?>
 
-
+<article>
+    <p>Il motore di ricerca è attivo sui campi "Numero di pubblicazione" e "Oggetto".</p>
+</article>
 
 <?php $widget->run(); ?>
 
