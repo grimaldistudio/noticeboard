@@ -130,10 +130,10 @@ class Document extends CActiveRecord{
             $criteria->addCondition("publication_date_to<='". date('Y-m-d H:i:s', $this->publication_date_to)."'");
         
         if(!$this->hasErrors('act_date_from') && $this->act_date_from)
-            $criteria->addCondition("act_date>='".date('Y-m-d H:i:s', $this->act_date_from)."'");
+            $criteria->addCondition("act_date>='".date('Y-m-d', $this->act_date_from)."'");
         
         if(!$this->hasErrors('act_date_to') && $this->act_date_to)
-            $criteria->addCondition("act_date<='". date('Y-m-d H:i:s', $this->act_date_to)."'");        
+            $criteria->addCondition("act_date<='". date('Y-m-d', $this->act_date_to)."'");        
         
         $criteria->compare('act_number', $this->act_number, true);
        // $criteria->compare('num_pages', $this->num_pages, true);
