@@ -7,7 +7,9 @@
        <ul class="inline-list">
            <li>  <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl.'/images/misc/pdficon_large.png'), $full_size_url, array('class'=>'', 'target'=>'_blank')); ?>     </li>                           
            <li> <?php echo CHtml::link('<i class="fi-rewind"></i>', '#', array('class'=>'tiny button secondary', 'id'=>'preview_back')); ?></li>
-           <li> <span id="current_page">1</span> di <span id="total_pages"> <?php echo $total_pages; ?></li>
+           <li> <span id="current_page">1</span> </li>
+           <li>di</li>
+           <li><span id="total_pages"> <?php echo $total_pages; ?></li>
            <li><?php echo CHtml::link('<i class="fi-fast-forward"></i>', '#', array('class'=>'tiny button secondary', 'id'=>'preview_next')); ?>    </li>                    
         </div>
     </div>

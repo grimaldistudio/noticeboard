@@ -8,11 +8,11 @@
 
 class PreviewManager {
 
-    const THUMBNAIL_MAX_WIDTH = 250;
-    const THUMBNAIL_MAX_HEIGHT = 250;
+    const THUMBNAIL_MAX_WIDTH = 350;
+    const THUMBNAIL_MAX_HEIGHT = 350;
     
-    const FULL_MAX_WIDTH = 450;
-    const FULL_MAX_HEIGHT = 450;
+    const FULL_MAX_WIDTH = 550;
+    const FULL_MAX_HEIGHT = 550;
     
     private $document_name = null;
     private $blank_image = null;
