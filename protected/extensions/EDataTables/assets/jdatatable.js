@@ -38,11 +38,11 @@ $.extend( $.fn.dataTableExt.oPagination, {
 			};
 
 			$(nPaging).addClass('pagination').append(
-				'<ul>'+
-					'<li class="first disabled"><a href="#">'+oLang.sFirst+'</a></li>'+
-					'<li class="prev disabled"><a href="#">'+oLang.sPrevious+'</a></li>'+
-					'<li class="next disabled"><a href="#">'+oLang.sNext+'</a></li>'+
-					'<li class="last disabled"><a href="#">'+oLang.sLast+'</a></li>'+
+				'<ul class="pagination">'+
+					'<li class="first unavailable"><a href="#">'+oLang.sFirst+'</a></li>'+
+					'<li class="prev unavailable"><a href="#">'+oLang.sPrevious+'</a></li>'+
+					'<li class="next unavailable"><a href="#">'+oLang.sNext+'</a></li>'+
+					'<li class="last unavailable"><a href="#">'+oLang.sLast+'</a></li>'+
 				'</ul>'
 			);
 			var els = $('a', nPaging);
