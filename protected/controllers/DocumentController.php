@@ -85,6 +85,7 @@ $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
                              'itemsCssClass'=>'table table-striped table-bordered table-hover',
  'dataProvider'  => $dataProvider,
  'ajaxUrl'       => $this->createUrl('/document/index'),
+      'bootstrap'    => true,
      'pager'=>array('cssFile'=>false,
                        'header'=>'',
                        //'firstPageLabel'=>'&lt;&lt;',
