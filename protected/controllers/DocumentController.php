@@ -194,4 +194,10 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         readfile($pm->getPreview(intval($page)));
     }
     
+     public function actionViewpdf()
+    {
+        $model = $this->loadModel();      
+        $model->download();
+    }
+    
 }
