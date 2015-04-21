@@ -82,7 +82,7 @@ $.extend( $.fn.dataTableExt.oPagination, {
 
 				// Add the new list items and their event handlers
 				for ( j=iStart ; j<=iEnd ; j++ ) {
-					sClass = (j==oPaging.iPage+1) ? 'class="active"' : '';
+					sClass = (j==oPaging.iPage+1) ? 'class="current"' : '';
 					$('<li '+sClass+'><a href="#">'+j+'</a></li>')
 						.insertBefore( prelast[0] )
 						.bind('click', function (e) {
@@ -94,16 +94,16 @@ $.extend( $.fn.dataTableExt.oPagination, {
 
 				// Add / remove disabled classes from the static elements
 				if ( oPaging.iPage === 0 ) {
-					$('li:lt(2)', an[i]).addClass('disabled');
+					$('li:lt(2)', an[i]).addClass('unavailable');
 				} else {
-					$('li:lt(2)', an[i]).removeClass('disabled');
+					$('li:lt(2)', an[i]).removeClass('unavailable');
 				}
 
 				size = $('li',an[i]).size();
 				if ( oPaging.iPage === oPaging.iTotalPages-1 || oPaging.iTotalPages === 0 ) {
-					$('li:gt('+(size-3)+')', an[i]).addClass('disabled');
+					$('li:gt('+(size-3)+')', an[i]).addClass('unavailable');
 				} else {
-					$('li:gt('+(size-3)+')', an[i]).removeClass('disabled');
+					$('li:gt('+(size-3)+')', an[i]).removeClass('unavailable');
 				}
 			}
 		}
