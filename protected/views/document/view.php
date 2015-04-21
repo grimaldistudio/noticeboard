@@ -2,7 +2,7 @@
 <?php $this->pageTitle = "Albo pretorio"; ?>
 
 <div class="row">
-    <div class="large-7 small-12 columns">
+    <div class="large-7 small-12 columns title-block">
         
         <h2><?php echo $model->subject; ?></h2>
 
@@ -32,7 +32,7 @@
     <div class="large-5 small-12 columns">
         
            <?php $this->renderPartial('_preview', array(
-                                            'total_pages'=>2, 
+                                            'total_pages'=>$model->total_pages, 
                                             'full_size_url'=> array('document/viewpdf', 'id'=>$model->id), 
                                             'preview_url'=>Yii::app()->createUrl('document/previewdoc', array('id'=>$model->id,'t'=>time()))
                                     )); ?>

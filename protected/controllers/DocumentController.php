@@ -149,6 +149,10 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     {
         $this->layout = 'bootstrap_sidebar';
         $model = $this->loadModel();
+              
+        $pm = new PreviewManager($model);
+        $total_pages = intval($pm->getDocumentInfo());
+                 
         $this->render('view', array('model'=>$model));	        
     }
     

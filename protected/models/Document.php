@@ -8,6 +8,8 @@ class Document extends CActiveRecord{
     public $act_date_to;
     public $act_date_from;
     
+    public $total_pages;
+    
     /**
     * Returns the static model of the specified AR class.
     * @return CActiveRecord the static model class
