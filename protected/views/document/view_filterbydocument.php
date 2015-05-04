@@ -4,7 +4,7 @@
 <div class="row">
     <div class="large-7 small-12 columns title-block">
         
-        <h2><?php echo $model->subject; ?></h2>
+        <h2><?php echo $model->name; ?></h2>
 
         <?php
         $this->widget('zii.widgets.CDetailView', array(
