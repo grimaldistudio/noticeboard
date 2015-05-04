@@ -259,7 +259,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         $pm = new PreviewManager($model);
         $model->total_pages = intval($pm->getDocumentInfo());
                  
-        $this->render('view', array('model'=>$model));
+        $this->render('view_filterbydocument', array('model'=>$model));
         
     }
     
