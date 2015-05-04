@@ -34,8 +34,7 @@ class DocumentController extends Controller{
     if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
         $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
         $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
-    }
-    
+    }    
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
@@ -116,7 +115,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     }
     
     
-    public function actionDeliberegiunta()
+    public function actionFilterByDocumentType()
     {    
     $criteria = new CDbCriteria;
 
@@ -125,7 +124,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
     }
     
-    $criteria->addSearchCondition('document_type_id', 17, true, 'AND');
+    $criteria->addSearchCondition('document_type_id', $_REQUEST['docType']{0}, true, 'AND');
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
@@ -175,7 +174,7 @@ $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
       'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
                              'itemsCssClass'=>'table table-striped table-bordered table-hover',
  'dataProvider'  => $dataProvider,
- 'ajaxUrl'       => $this->createUrl('/document/index'),
+ 'ajaxUrl'       => $this->createUrl('/document/FilterByDocumentType'),
      'pager'=>array('cssFile'=>false,
                        'header'=>'',
                        //'firstPageLabel'=>'&lt;&lt;',
