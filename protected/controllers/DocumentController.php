@@ -117,7 +117,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
     public function actionFilterByDocumentType($id)
     {    
-        die("here");
+ 
     $criteria = new CDbCriteria;
 
     if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
