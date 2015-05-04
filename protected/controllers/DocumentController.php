@@ -122,7 +122,8 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
 
     if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
         $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
-        $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
+        $criteria->addSearchCondition('identifier', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
+        $criteria->addSearchCondition('name', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
     }
     
     $criteria->addSearchCondition('document_type', $id, true, 'AND');
