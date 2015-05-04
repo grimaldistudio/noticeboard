@@ -1,4 +1,4 @@
-<?php $this->breadcrumbs = array($model->document_type->name => array('document/category', 'cat'=>$model->document_type_id),  'Dettaglio'); ?>
+<?php $this->breadcrumbs = array($model->document_type->name => array('document/category', 'cat'=>isset($model->document_type_id) ? $model->document_type_id : $model->document_type),  'Dettaglio'); ?>
 <?php $this->pageTitle = "Albo pretorio"; ?>
 
 <div class="row">
