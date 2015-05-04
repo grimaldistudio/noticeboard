@@ -251,6 +251,12 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         $this->render('view', array('model'=>$model));	        
     }
     
+    public function actionViewFilterByDocumentType($id) {
+        
+        die("here");
+        
+    }
+    
     public function actionDownload()
     {
         $model = $this->loadModel();
