@@ -156,8 +156,8 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
      // 'publication_date_to',
        // array('name'=>'act_number'),
         array('name'=>'entity_id',
-              'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
-              'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
+              //'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
+              'value'=>'$data->entity?$data->entity:Yii::app()->params[\'entity\']'
              ),
    //     array('name'=>'proposer_service_id',
    //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
