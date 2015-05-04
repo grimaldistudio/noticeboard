@@ -115,7 +115,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     }
     
     
-    public function actionFilterByDocumentType()
+    public function actionFilterByDocumentType($docTypeId)
     {    
     $criteria = new CDbCriteria;
 
@@ -124,7 +124,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
     }
     
-    $criteria->addSearchCondition('document_type_id', $_REQUEST['docType'], true, 'AND');
+    $criteria->addSearchCondition('document_type_id', $docTypeId, true, 'AND');
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
