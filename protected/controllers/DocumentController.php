@@ -148,9 +148,9 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             ),   
         array('name'=>'name'),
        array('name'=>'act_date'),
-      array('name'=>'document_type_id',
-              'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
-              'filter'=>'$data->getTypeDesc($data->document_type)'
+      array('name'=>'document_type',
+              'value'=>'$data->document_type?$data->document_type:\'n/d\'',
+             // 'filter'=>'$data->getTypeDesc($data->document_type)'
              ),
      //'publication_date_from',
      // 'publication_date_to',
