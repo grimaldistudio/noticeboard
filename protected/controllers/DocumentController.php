@@ -150,7 +150,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
        array('name'=>'act_date'),
       array('name'=>'document_type_id',
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
-              'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
+              'filter'=>'$data->getTypeDesc($data->document_type)'
              ),
      //'publication_date_from',
      // 'publication_date_to',

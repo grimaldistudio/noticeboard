@@ -484,7 +484,37 @@ class Document extends CActiveRecord{
          // if(isset($this->publication_date_to)) $this->publication_date_to = Yii::app()->locale->dateFormatter->format('dd/MM/y H:i', $this->publication_date_to);     
      
           return parent::afterFind();
-        } 
+        }
+        
+        
+        public function getTypeOptions()
+    {
+        return array(
+            5 => 'Avviso di accertamento',
+            10 => 'Bandi e avvisi',
+            15 => 'Convocazioni',
+            17 => 'Delibere di giunta',
+            19 => 'Delibere di consiglio',
+            20 => 'Determine',
+            25 => 'Oggetti e valori ritrovati',
+            30 => 'Ordinanze',
+            35 => 'Pubblicazioni di matrimonio',
+            40 => 'Pubblicazioni di altri enti',
+            45 => 'Pubblicazioni varie'
+        );
+    }
+    
+    public function getTypeDesc($value = -1)
+    {
+        if($value<0)
+            $value = $this->document_type;
+        if(array_key_exists($value, $this->getTypeOptions()))
+        {
+            $options = $this->getTypeOptions();
+            return $options[$value];
+        }
+        return 'n/d';        
+    }
     
     
 }
