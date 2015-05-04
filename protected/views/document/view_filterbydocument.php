@@ -32,7 +32,7 @@
     <div class="large-5 small-12 columns">
         
            <?php $this->renderPartial('_preview', array(
-                                            'total_pages'=>$model->total_pages, 
+                                            'total_pages'=>$model->num_pages, 
                                             'full_size_url'=> array('document/viewpdf', 'id'=>$model->id), 
                                             'preview_url'=>Yii::app()->createUrl('document/previewdoc', array('id'=>$model->id,'t'=>time()))
                                     )); ?>
