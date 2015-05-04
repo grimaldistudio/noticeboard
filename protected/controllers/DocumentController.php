@@ -125,7 +125,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
     }
     
-    $criteria->addSearchCondition('document_type', $id, true, 'AND');
+   // $criteria->addSearchCondition('document_type', $id, true, 'AND');
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
