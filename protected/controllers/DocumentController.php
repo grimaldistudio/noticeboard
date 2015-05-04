@@ -253,7 +253,13 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
     public function actionViewFilterByDocumentType($id) {
         
-        die("here");
+        $this->layout = 'bootstrap_sidebar';
+        $model = $this->loadModel();
+              
+        $pm = new PreviewManager($model);
+        $model->total_pages = intval($pm->getDocumentInfo());
+                 
+        $this->render('view', array('model'=>$model));
         
     }
     
