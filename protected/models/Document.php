@@ -75,6 +75,8 @@ class Document extends CActiveRecord{
             'description' => 'Descrizione',
             //'num_pages' => 'Numero di pagine',
             'document_type_id' => 'Tipologia',
+            'document_type' => 'Tipologia',
+            'entity' => 'Ente',
             'proposer_service_id' => 'Servizio proponente',
             'relative_path' => 'Percorso relativo',
             'status' => 'Stato',
