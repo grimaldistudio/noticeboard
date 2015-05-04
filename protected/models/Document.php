@@ -10,6 +10,8 @@ class Document extends CActiveRecord{
     
     public $total_pages;
     
+    public $relative_path = null;
+    
     /**
     * Returns the static model of the specified AR class.
     * @return CActiveRecord the static model class
