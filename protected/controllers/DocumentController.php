@@ -118,7 +118,8 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
     public function actionDeliberegiunta()
     {
-
+    $this->layout = 'bootstrap_sidebar';
+    
     $criteria = new CDbCriteria;
 
     if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
