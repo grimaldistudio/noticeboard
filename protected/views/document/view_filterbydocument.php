@@ -19,7 +19,7 @@
                                 'publication_date_to' => array('label'=>$model->getAttributeLabel('publication_date_to'), 'type'=>'datetime', 'value' => $model->publication_date_to?strtotime($model->publication_date_to):null),
                                 'entity' => array('label'=>$model->getAttributeLabel('entity'), 'value' => $model->entity?$model->entity:Yii::app()->params['entity']),
                                 //'proposer_service_id' => array('label'=>$model->getAttributeLabel('proposer_service_id'), 'value' => $model->proposer_service?$model->proposer_service->name:'n/d'),
-                                'document_type' => array('label'=>$model->getAttributeLabel('document_type'), 'value' => $model->document_type?$model->getTypeDesc($data->document_type):'n/d'),
+                                'document_type' => array('label'=>$model->getAttributeLabel('document_type'), 'value' => $model->document_type?$model->getTypeDesc($model->document_type):'n/d'),
                                 'description' => array('label' => $model->getAttributeLabel('description'), 'type'=>'html', 'value'=>$model->description),
                                 'download' => array('label'=>'Documenti', 'type'=>'raw', 'value'=>'<a href="'.Yii::app()->createUrl('/document/download', array('id'=>$model->id)).'" target="_blank"><img src="'.Yii::app()->baseUrl.'/images/pdficon_large.png" /></a>  ('.$model->getDocumentSize().' KB)', 'visible'=>$model->sync_file==1)
                 ),
@@ -31,11 +31,11 @@
     
     <div class="large-5 small-12 columns">
         
-           <?php /*$this->renderPartial('_preview', array(
+           <?php $this->renderPartial('_preview', array(
                                             'total_pages'=>$model->total_pages, 
                                             'full_size_url'=> array('document/viewpdf', 'id'=>$model->id), 
                                             'preview_url'=>Yii::app()->createUrl('document/previewdoc', array('id'=>$model->id,'t'=>time()))
-                                    ));*/ ?>
+                                    )); ?>
         
     </div>
     
