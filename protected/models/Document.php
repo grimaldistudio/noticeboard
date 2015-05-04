@@ -489,7 +489,19 @@ class Document extends CActiveRecord{
         
         public function getTypeOptions()
     {
-       return CHtml::listData(DocumentType::model()->findAll(), 'id', 'name');
+       return array(
+            5 => 'Avviso di accertamento',
+            10 => 'Bandi e avvisi',
+            15 => 'Convocazioni',
+            17 => 'Delibere di giunta',
+            19 => 'Delibere di consiglio',
+            20 => 'Determine',
+            25 => 'Oggetti e valori ritrovati',
+            30 => 'Ordinanze',
+            35 => 'Pubblicazioni di matrimonio',
+            40 => 'Pubblicazioni di altri enti',
+            45 => 'Pubblicazioni varie'
+        );
     }
     
     public function getTypeDesc($value = -1)
