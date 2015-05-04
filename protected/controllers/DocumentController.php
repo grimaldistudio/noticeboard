@@ -146,7 +146,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             'type'=>'raw',
             'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:$data->identifier,array("document/view","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
             ),   
-        array('name'=>'subject'),
+        array('name'=>'name'),
        array('name'=>'act_date'),
       array('name'=>'document_type_id',
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
@@ -155,7 +155,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
      //'publication_date_from',
      // 'publication_date_to',
        // array('name'=>'act_number'),
-        array('name'=>'entity_id',
+        array('name'=>'entity',
               //'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
               'value'=>'$data->entity?$data->entity:Yii::app()->params[\'entity\']'
              ),
