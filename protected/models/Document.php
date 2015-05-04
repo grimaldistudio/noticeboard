@@ -11,6 +11,7 @@ class Document extends CActiveRecord{
     public $total_pages;
     
     public $relative_path = null;
+    public $link_id = null;
     
     /**
     * Returns the static model of the specified AR class.
@@ -173,8 +174,8 @@ class Document extends CActiveRecord{
     }
     
     public function getDocumentName()
-    {
-        return 'documento_'.$this->link_id.'.pdf';
+    {        
+        return ($this->link_id == null) ? 'documento_'.$this->id.'.pdf' : 'documento_'.$this->link_id.'.pdf';
     }
     
     public function getPath()
