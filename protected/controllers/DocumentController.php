@@ -35,6 +35,7 @@ class DocumentController extends Controller{
         $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
         $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
     }
+    
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
@@ -113,6 +114,100 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         else
             $this->renderPartial('list', $params);                        */
     }
+    
+    
+    public function actionDeliberegiunta()
+    {
+
+    $criteria = new CDbCriteria;
+
+    if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
+        $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
+        $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
+    }
+    
+    $criteria->addSearchCondition('document_type', 17, true, 'AND');
+ 
+    $sort = new EDTSort('Document', $sortableColumnNamesArray);
+    $sort->defaultOrder = 'id';
+    
+    $pagination = new EDTPagination();
+
+    $dataProvider = new CActiveDataProvider('Document', array(
+        'criteria'      => $criteria,
+        'pagination'    => $pagination,
+        'sort'          => $sort,
+    ));
+
+
+ $columns = array(       
+      //  array('name'=>'protocol_number'),
+        array(
+            'name'=>'publication_number',
+            'type'=>'raw',
+            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
+            ),   
+        array('name'=>'subject'),
+       array('name'=>'act_date'),
+      array('name'=>'document_type_id',
+              'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
+              'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
+             ),
+     //'publication_date_from',
+     // 'publication_date_to',
+       // array('name'=>'act_number'),
+        array('name'=>'entity_id',
+              'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
+              'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
+             ),
+   //     array('name'=>'proposer_service_id',
+   //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
+   //           'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
+   //          ),
+//        array(
+//            'class'=>'bootstrap.widgets.BootButtonColumn',
+//            'htmlOptions'=>array('style'=>'width: 50px'),
+//            'template'=>'{view}'
+//        ),
+    );
+
+$widget=$this->createWidget('ext.EDataTables.EDataTables', array(
+ 'id'            => 'table',
+      'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
+                             'itemsCssClass'=>'table table-striped table-bordered table-hover',
+ 'dataProvider'  => $dataProvider,
+ 'ajaxUrl'       => $this->createUrl('/document/index'),
+     'pager'=>array('cssFile'=>false,
+                       'header'=>'',
+                       //'firstPageLabel'=>'&lt;&lt;',
+                      // 'prevPageLabel'=>'&lt;',
+                       //'nextPageLabel'=>'&gt;', 
+                       //'lastPageLabel'=>'&gt;&gt;',
+                       //'maxButtonCount'=>5,
+                       'class'=>'pagination'),
+    'pagerCssClass'=>'pagination pagination-centered', 
+ 'columns'       => $columns,
+    
+    
+));
+
+if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
+  $this->render('list', array('widget' => $widget,));
+  return;
+} else {
+  echo json_encode($widget->getFormattedData(intval($_REQUEST['sEcho'])));
+  Yii::app()->end();
+}
+
+
+        /*if(!isset($_GET['ajax']))
+            $this->render('list', $params);
+        else
+            $this->renderPartial('list', $params);                        */
+    }
+    
+    
+    
     
     public function actionCategory($cat = 0)
     {
