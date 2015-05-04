@@ -175,7 +175,7 @@ $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
       'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
                              'itemsCssClass'=>'table table-striped table-bordered table-hover',
  'dataProvider'  => $dataProvider,
- 'ajaxUrl'       => $this->createUrl('/document/FilterByDocumentType'),
+ 'ajaxUrl'       => $this->createUrl('/document/FilterByDocumentType/'.$id),
      'pager'=>array('cssFile'=>false,
                        'header'=>'',
                        //'firstPageLabel'=>'&lt;&lt;',
