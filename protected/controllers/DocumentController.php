@@ -117,9 +117,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
     
     public function actionDeliberegiunta()
-    {
-    $this->layout = 'bootstrap_sidebar';
-    
+    {    
     $criteria = new CDbCriteria;
 
     if (isset($_REQUEST['sSearch']) && isset($_REQUEST['sSearch']{0})) {
@@ -127,7 +125,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
     }
     
-    $criteria->addSearchCondition('document_type', 17, true, 'AND');
+    $criteria->addSearchCondition('document_type_id', 17, true, 'AND');
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
