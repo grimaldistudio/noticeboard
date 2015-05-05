@@ -167,6 +167,7 @@ class Document extends CActiveRecord{
     
     public function getRelativePath()
     {
+        die('here'.$this->relative_path);
         if(is_null($this->relative_path))
         {
             $time = strtotime($this->date_created);
