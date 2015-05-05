@@ -192,8 +192,7 @@ class Document extends CActiveRecord{
     
     public function download($force_download = false)
     {
-        $path = $this->getPath();
-        die($path);
+        $path = $this->getPath();        
         if(file_exists($path)){
             if($force_download)
                 header('Content-disposition: attachment; filename='.$this->getDocumentName());
