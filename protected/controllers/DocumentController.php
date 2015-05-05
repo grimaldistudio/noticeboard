@@ -318,7 +318,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
      public function actionViewpdffiltered()
     {
-         die("here");
+         return true;
         $model = $this->loadModel();              
         $model->download();
     }
