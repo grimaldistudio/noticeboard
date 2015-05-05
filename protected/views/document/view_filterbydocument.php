@@ -21,7 +21,7 @@
                                 //'proposer_service_id' => array('label'=>$model->getAttributeLabel('proposer_service_id'), 'value' => $model->proposer_service?$model->proposer_service->name:'n/d'),
                                 'document_type' => array('label'=>$model->getAttributeLabel('document_type'), 'value' => $model->document_type?$model->getTypeDesc($model->document_type):'n/d'),
                                 'description' => array('label' => $model->getAttributeLabel('description'), 'type'=>'html', 'value'=>$model->description),
-                                'download' => array('label'=>'Documenti', 'type'=>'raw', 'value'=>'<a href="'.Yii::app()->createUrl('/document/download', array('id'=>$model->id)).'" target="_blank"><img src="'.Yii::app()->baseUrl.'/images/pdficon_large.png" /></a>  ('.$model->getDocumentSize().' KB)', 'visible'=>$model->sync_file==1)
+                                'download' => array('label'=>'Documenti', 'type'=>'raw', 'value'=>'<a href="'.Yii::app()->createUrl('/document/download', array('id'=>$model->id)).'" target="_blank"><img src="'.Yii::app()->baseUrl.'/images/pdficon_large.png" /></a>  ('.$model->getDocumentSize().' KB)', 'visible'=>true)
                 ),
             'nullDisplay'=>'n/d'
         ));
