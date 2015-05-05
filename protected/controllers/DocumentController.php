@@ -272,6 +272,12 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             throw new CHttpException(404, 'Il file non è disponibile per il download');
     }
     
+    public function actionDownloadfiltered()
+    {
+        $model = $this->loadModel();        
+        $model->download();
+    }
+    
     public function actionExport()
     {
         set_time_limit(600); // 10 minutes
