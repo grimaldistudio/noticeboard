@@ -170,8 +170,7 @@ class Document extends CActiveRecord{
         if(is_null($this->relative_path))
         {
             $time = strtotime($this->date_created);
-            $this->relative_path = 'saved'.DIRECTORY_SEPARATOR.date('Y', $time).DIRECTORY_SEPARATOR.date('m', $time).DIRECTORY_SEPARATOR.date('d', $time);        
-             die('here'.$this->relative_path);
+            $this->relative_path = 'saved'.DIRECTORY_SEPARATOR.date('Y', $time).DIRECTORY_SEPARATOR.date('m', $time).DIRECTORY_SEPARATOR.date('d', $time);                     
         }
         return $this->relative_path;
     }
@@ -183,7 +182,7 @@ class Document extends CActiveRecord{
     
     public function getPath()
     {
-        return Yii::getPathOfAlias('documents').DIRECTORY_SEPARATOR.$this->relative_path.DIRECTORY_SEPARATOR.$this->getDocumentName();
+        die( Yii::getPathOfAlias('documents').DIRECTORY_SEPARATOR.$this->relative_path.DIRECTORY_SEPARATOR.$this->getDocumentName() );
     }       
     
     public function getCachePath()
