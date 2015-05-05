@@ -14,7 +14,7 @@
                                 'name',
                                // 'protocol_number', 
                                 'act_number' => array('label'=>$model->getAttributeLabel('act_number'), 'value' => $model->identifier ) ,
-                                'act_date' => array('label'=>$model->getAttributeLabel('act_date'), 'type'=>'date', 'value' => $model->act_date?($model->act_date):null),
+                                'act_date' => array('label'=>$model->getAttributeLabel('act_date'), 'value' => $model->act_date?($model->act_date):null),
                                 'publication_date_from' => array('label'=>$model->getAttributeLabel('publication_date_from'), 'type'=>'datetime', 'value' => $model->publication_date_from?strtotime($model->publication_date_from):null),
                                 'publication_date_to' => array('label'=>$model->getAttributeLabel('publication_date_to'), 'type'=>'datetime', 'value' => $model->publication_date_to?strtotime($model->publication_date_to):null),
                                 'entity' => array('label'=>$model->getAttributeLabel('entity'), 'value' => $model->entity?$model->entity:Yii::app()->params['entity']),
