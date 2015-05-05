@@ -16,7 +16,7 @@ class DocumentController extends Controller{
             if(isset($_GET['id']))
             {
                 $this->_model=Document::model()->findByPk($_GET['id']);
-                die($_GET['id']);
+                die($this->_model);
             }
 
             if($this->_model===null || !$this->_model->isActive())
