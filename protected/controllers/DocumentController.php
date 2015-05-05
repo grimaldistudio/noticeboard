@@ -16,7 +16,7 @@ class DocumentController extends Controller{
             if(isset($_GET['id']))
             {
                 $this->_model=Document::model()->findByPk($_GET['id']);
-                var_dump($this->_model);
+                var_dump($_GET['id']);
                 
             }
 var_dump($this->_model);
