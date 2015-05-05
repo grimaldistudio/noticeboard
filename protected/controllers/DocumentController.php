@@ -19,8 +19,8 @@ class DocumentController extends Controller{
                 
             }
 
-            if($this->_model===null )
-                throw new CHttpException(404,'La pagina richiesta non esiste.');
+          //  if($this->_model===null || !$this->_model->isActive())
+          //      throw new CHttpException(404,'La pagina richiesta non esiste.');
 
         }
 
