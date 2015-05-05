@@ -166,12 +166,12 @@ class Document extends CActiveRecord{
     }
     
     public function getRelativePath()
-    {
-        die('here'.$this->relative_path);
+    {       
         if(is_null($this->relative_path))
         {
             $time = strtotime($this->date_created);
             $this->relative_path = 'saved'.DIRECTORY_SEPARATOR.date('Y', $time).DIRECTORY_SEPARATOR.date('m', $time).DIRECTORY_SEPARATOR.date('d', $time);        
+             die('here'.$this->relative_path);
         }
         return $this->relative_path;
     }
