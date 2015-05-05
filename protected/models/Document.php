@@ -65,6 +65,7 @@ class Document extends CActiveRecord{
         return array(
             'id' => 'Id',
             'subject' => 'Oggetto',
+            'name' => 'Oggetto',
             'entity_id' => 'Ente',
             'protocol_number' => 'Numero protocollo',
             'publication_number' => 'Numero di pubblicazione',
