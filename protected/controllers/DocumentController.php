@@ -293,10 +293,9 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     }
     
       public function actionPreviewdoc($page = 0)
-    {
-          die("here");
+    {          
         $model = $this->loadModel();
-    
+die("here");    
         $pm = new PreviewManager($model);
         header('Content-Type: image/jpeg');
         readfile($pm->getPreview(intval($page)));
