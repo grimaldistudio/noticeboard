@@ -16,10 +16,8 @@ class DocumentController extends Controller{
             if(isset($_GET['id']))
             {
                 $this->_model=Document::model()->findByPk($_GET['id']);
-                var_dump($_GET['id']);
-                
             }
-var_dump($this->_model);
+
             if($this->_model===null || !$this->_model->isActive())
                 throw new CHttpException(404,'La pagina richiesta non esiste.');
 
@@ -295,7 +293,16 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     }
     
       public function actionPreviewdoc($page = 0)
-    {          
+    {
+        $model = $this->loadModel();
+    
+        $pm = new PreviewManager($model);
+        header('Content-Type: image/jpeg');
+        readfile($pm->getPreview(intval($page)));
+    }
+    
+      public function actionPreviewdocfiltered($page = 0)
+    {
         $model = $this->loadModel();
     
         $pm = new PreviewManager($model);
