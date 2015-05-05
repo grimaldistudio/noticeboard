@@ -129,7 +129,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     $criteria->addSearchCondition('document_type', $id, true, 'AND');
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
-    $sort->defaultOrder = 'id';
+    $sort->defaultOrder = 'act_date';
     
     $pagination = new EDTPagination();
 
