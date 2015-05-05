@@ -294,6 +294,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
       public function actionPreviewdoc($page = 0)
     {
+          die("here");
         $model = $this->loadModel();
     
         $pm = new PreviewManager($model);
