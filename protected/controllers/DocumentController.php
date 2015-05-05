@@ -275,7 +275,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     public function actionDownloadfiltered()
     {
         $model = $this->loadModel();        
-        $model->download();
+        $model->download(true);
     }
     
     public function actionExport()
