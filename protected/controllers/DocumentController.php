@@ -18,9 +18,9 @@ class DocumentController extends Controller{
                 $this->_model=Document::model()->findByPk($_GET['id']);
                 
             }
-
-          //  if($this->_model===null || !$this->_model->isActive())
-          //      throw new CHttpException(404,'La pagina richiesta non esiste.');
+var_dump($this->_model);
+            if($this->_model===null || !$this->_model->isActive())
+                throw new CHttpException(404,'La pagina richiesta non esiste.');
 
         }
 
