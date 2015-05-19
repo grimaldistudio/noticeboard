@@ -12,7 +12,7 @@
             'itemCssClass'=>'table table-striped table-condensed',
             'attributes'=>array(
                                 'subject',
-                                'protocol_number', 
+                               // 'protocol_number', 
                                 'act_number',
                                 'act_date' => array('label'=>$model->getAttributeLabel('act_date'), 'type'=>'date', 'value' => $model->act_date?($model->act_date):null),
                                 'publication_date_from' => array('label'=>$model->getAttributeLabel('publication_date_from'), 'type'=>'datetime', 'value' => $model->publication_date_from?strtotime($model->publication_date_from):null),
