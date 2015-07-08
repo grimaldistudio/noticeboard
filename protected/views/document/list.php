@@ -54,11 +54,11 @@ Yii::app()->clientScript->registerScript("showMe",
         function showMe(id){
                 $.ajax({
                 url: "document/ViewFilterByDocumentType/"+id,
-                "beforeSend":function() { 
+                beforeSend:function() { 
                     $("#detail").addClass("loading");
                     $("body,html").animate({scrollTop: $("a[name=detail-view]").offset().top }, 1000); 
                 },
-                "cache":false,
-                "success":function(html){jQuery("#detail").html(html)}
+                cache:false,
+                success:function(html){jQuery("#detail").html(html)}
         });return false;} '       ,CClientScript::POS_READY);
         ?>
