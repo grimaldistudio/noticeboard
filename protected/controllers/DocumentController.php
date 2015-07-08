@@ -35,6 +35,8 @@ class DocumentController extends Controller{
         $criteria->addSearchCondition('publication_number', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
         $criteria->addSearchCondition('subject', $_REQUEST['sSearch'], true, 'OR', 'LIKE');
     }    
+    
+    $criteria->condition('NOW() BETWEEN publication_date_from AND publication_date_to');    
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
