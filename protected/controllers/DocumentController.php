@@ -149,7 +149,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             'type'=>'raw',
             'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
             ),   
-        array('name'=>'name'),
+        array('name'),
        array('name'=>'act_date'),
       array('name'=>'document_type',
               'value'=>'$data->document_type?$data->getTypeDesc($data->document_type):\'n/d\'',
