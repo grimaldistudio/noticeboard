@@ -62,11 +62,11 @@ class DocumentController extends Controller{
 
           //  'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
             ),   
-        array('name'=>'subject'),
+        array('name'=>'subject','htmlOptions'=>array('style'=>'min-width:150px'),),
        array('name'=>'act_number',
              'header'=>'Protocollo/Atto e Data',
               'type'=>'raw',
-             'value'=>'($data->protocol_number)?$data->protocol_number."<br />del: ".$data->act_date:$data->act_number."<br />del: ".$data->act_date', 
+             'value'=>'($data->protocol_number)?"N. ".$data->protocol_number."<br />del ".$data->act_date:"N. ".$data->act_number."<br />del ".$data->act_date', 
            ),
       array('name'=>'document_type_id',
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
@@ -82,7 +82,7 @@ class DocumentController extends Controller{
                         array('name'=>'periodo',
                             'header'=> "Periodo esposizione",
                             'type'=>'raw',
-                            'value'=>'"Dal ".date("d/m/Y",strtotime($data->publication_date_from))."<br />Al ".date("d/m/Y",strtotime($data->publication_date_to))',
+                            'value'=>'"Dal ".date("d/m/Y",strtotime($data->publication_date_from))."<br />al ".date("d/m/Y",strtotime($data->publication_date_to))',
                             )
    //     array('name'=>'proposer_service_id',
    //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
