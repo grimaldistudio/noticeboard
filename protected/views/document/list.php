@@ -53,7 +53,7 @@ Yii::app()->clientScript->registerScript("showMe",
         '
         function showMe(id){
                 $.ajax({
-                url: "document/ViewFilterByDocumentType/"+id,
+                url: "/noticeboard/document/ViewFilterByDocumentType/"+id,
                 beforeSend:function() { 
                     $("#detail").addClass("loading");
                     $("body,html").animate({scrollTop: $("a[name=detail-view]").offset().top }, 1000); 
