@@ -46,4 +46,9 @@ else
     ),
     'filter'=>$model
 )); */?>
-
+<script>
+function showme(id){
+    $.ajax({
+    url: "document/ViewFilterByDocumentType/id/"+id,
+}
+</script>
