@@ -147,7 +147,8 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         array(
             'name'=>'publication_number',
             'type'=>'raw',
-            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
+            //'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
+            'value'=>'CHtml::link($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id))'
             ),   
         array('name'),
        array('name'=>'act_date'),
@@ -166,11 +167,11 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
    //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
    //           'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
    //          ),
-        array(
-            'class'=>'bootstrap.widgets.BootButtonColumn',
-            'htmlOptions'=>array('style'=>'width: 50px'),
-            'template'=>'{view}'
-        ),
+//        array(
+//            'class'=>'bootstrap.widgets.BootButtonColumn',
+//            'htmlOptions'=>array('style'=>'width: 50px'),
+//            'template'=>'{view}'
+//        ),
     );
 
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
