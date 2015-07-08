@@ -56,7 +56,7 @@ class DocumentController extends Controller{
             'name'=>'publication_number',
             'type'=>'raw',
             'value'=>function($data) { 
-                        return CHtml::link($data->publication_number?$data->publication_number:'n/d', "", array("onclick"=>"javascript:showMe(".$data->id.",'document','view')"));                   
+                        return CHtml::link($data->publication_number?$data->publication_number:'n/d', "", array("onclick"=>"javascript:showMe(".$data->id.",'view')"));                   
                 },
           //  'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
             ),   
@@ -151,7 +151,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             'name'=>'publication_number',
             'type'=>'raw',
            'value'=>function($data) { 
-                        return CHtml::link($data->publication_number?$data->publication_number:$data->identifier, "", array("onclick"=>"javascript:showMe(".$data->id.")"));                   
+                        return CHtml::link($data->publication_number?$data->publication_number:$data->identifier, "", array("onclick"=>"javascript:showMe(".$data->id.",'ViewFilterByDocumentType')"));                   
                 },  
                         ),
         array('name'=>'name'),
