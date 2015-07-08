@@ -51,7 +51,7 @@ else
 <?php
 Yii::app()->clientScript->registerScript("showMe", 
         '
-        function showme(id){
+        function showMe(id){
                 $.ajax({
                 url: "document/ViewFilterByDocumentType/"+id,
                 "beforeSend":function() { 
@@ -61,5 +61,5 @@ Yii::app()->clientScript->registerScript("showMe",
 
                 "cache":false,
                 "success":function(html){jQuery("#detail").html(html)}
-        });return false;} '       ,CClientScript::POS_HEAD);
+        });return false;} '       ,CClientScript::POS_READY);
         ?>

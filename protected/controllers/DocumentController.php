@@ -148,7 +148,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             'name'=>'publication_number',
             'type'=>'raw',
            'value'=>function($data) { 
-                        return CHtml::link($data->publication_number?$data->publication_number:$data->identifier, "", array("onclick"=>"js:showme(".$data->id.")"));                   
+                        return CHtml::link($data->publication_number?$data->publication_number:$data->identifier, "", array("onclick"=>"javascript:showMe(".$data->id.")"));                   
                 },  
                         ),
         array('name'=>'name'),
