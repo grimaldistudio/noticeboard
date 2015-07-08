@@ -65,6 +65,7 @@ class DocumentController extends Controller{
         array('name'=>'subject'),
        array('name'=>'act_number',
              'header'=>'Protocollo/Atto e Data',
+           'type'=>'raw',
              'value'=>'(isset($date->protocol_number))?$date->protocol_number."\nDel: ".$data->act_date:$date->act_number."\nDel: ".$data->act_date',
             'htmlOptions'=>array('width'=>'1%'),
            ),
@@ -79,6 +80,11 @@ class DocumentController extends Controller{
               'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
               'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
              ),
+                        array('name'=>'periodo',
+                            'header'=> "Periodo esposizione",
+                            'type'=>'raw',
+                            'value'=>'Dal $date->publication_date_from <br /> Al $date->publication_date_to',
+                            )
    //     array('name'=>'proposer_service_id',
    //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
    //           'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
