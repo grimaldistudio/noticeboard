@@ -66,7 +66,7 @@ class DocumentController extends Controller{
        array('name'=>'act_number',
              'header'=>'Protocollo/Atto e Data',
            'type'=>'raw',
-             'value'=>'(isset($date->protocol_number))?$date->protocol_number."\nDel: ".$data->act_date:$date->act_number."\nDel: ".$data->act_date',
+             'value'=>'(isset($data->protocol_number))?$data->protocol_number."\nDel: ".$data->act_date:$data->act_number."\nDel: ".$data->act_date',
             'htmlOptions'=>array('width'=>'1%'),
            ),
       array('name'=>'document_type_id',
@@ -83,7 +83,7 @@ class DocumentController extends Controller{
                         array('name'=>'periodo',
                             'header'=> "Periodo esposizione",
                             'type'=>'raw',
-                            'value'=>'Dal $date->publication_date_from <br /> Al $date->publication_date_to',
+                            'value'=>'"Dal "+$data->publication_date_from."<br />Al ".$data->publication_date_to',
                             )
    //     array('name'=>'proposer_service_id',
    //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
