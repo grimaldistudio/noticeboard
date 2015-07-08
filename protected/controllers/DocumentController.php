@@ -66,7 +66,7 @@ class DocumentController extends Controller{
        array('name'=>'act_number',
              'header'=>'Protocollo/Atto e Data',
            'type'=>'raw',
-             'value'=>'"N. ".($data->protocol_number)?$data->protocol_number."<br />del: ".$data->act_date:$data->act_number."<br />del: ".$data->act_date',
+             'value'=>'($data->protocol_number)?$data->protocol_number."<br />del: ".$data->act_date:$data->act_number."<br />del: ".$data->act_date',
             'htmlOptions'=>array('width'=>'1%'),
            ),
       array('name'=>'document_type_id',
