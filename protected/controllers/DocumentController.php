@@ -147,10 +147,9 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
         array(
             'name'=>'publication_number',
             'type'=>'raw',
-            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id), array(url=>"$(this).attr(\'href\')", update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
-            //'value'=>'CHtml::link($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id))'
+            'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
             ),   
-        array('name'),
+        array('name'=>'name'),
        array('name'=>'act_date'),
       array('name'=>'document_type',
               'value'=>'$data->document_type?$data->getTypeDesc($data->document_type):\'n/d\'',
