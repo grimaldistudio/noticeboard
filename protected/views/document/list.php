@@ -61,4 +61,4 @@ Yii::app()->clientScript->registerScript("showMe",
                 cache:false,
                 success:function(html){jQuery("#detail").html(html)}
         });return false;} '       ,CClientScript::POS_READY);
-        ?>
+?>
