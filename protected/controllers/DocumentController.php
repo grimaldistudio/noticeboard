@@ -148,7 +148,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             'name'=>'publication_number',
             'type'=>'raw',
           //  'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:$data->identifier,array("document/ViewFilterByDocumentType","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
-           'value'=>'CHtml::link("here".$data->identifier, "", array("onclick"=>"js:ajax_function(".$data->id."))',
+           'value'=>'CHtml::link("here", "", array("onclick"=>"js:ajax_function(".$data->id."))',
             ),   
         array('name'=>'name'),
        array('name'=>'act_date'),
