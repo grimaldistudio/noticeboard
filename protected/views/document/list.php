@@ -57,8 +57,7 @@ Yii::app()->clientScript->registerScript("showMe",
                 "beforeSend":function() { 
                     $("#detail").addClass("loading");
                     $("body,html").animate({scrollTop: $("a[name=detail-view]").offset().top }, 1000); 
-                }
-
+                },
                 "cache":false,
                 "success":function(html){jQuery("#detail").html(html)}
         });return false;} '       ,CClientScript::POS_READY);
