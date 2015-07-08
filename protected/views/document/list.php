@@ -11,19 +11,7 @@ else
     <p>Il motore di ricerca è attivo sui campi "Numero di pubblicazione" e "Oggetto".</p>
 </article>
 
-<script>
-function showme(id){
-    $.ajax({
-    url: "document/ViewFilterByDocumentType/"+id,
-    'beforeSend':function() { 
-        $('#detail').addClass('loading');
-        $('body,html').animate({scrollTop: $('a[name=detail-view]').offset().top }, 1000); 
-    }
-    
-    'cache':false,
-    'success':function(html){jQuery("#detail").html(html)}
-    });return false;
-</script>
+
 
 <?php $widget->run(); ?>
 
