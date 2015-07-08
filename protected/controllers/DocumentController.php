@@ -166,11 +166,11 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
    //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
    //           'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
    //          ),
-//        array(
-//            'class'=>'bootstrap.widgets.BootButtonColumn',
-//            'htmlOptions'=>array('style'=>'width: 50px'),
-//            'template'=>'{view}'
-//        ),
+        array(
+            'class'=>'bootstrap.widgets.BootButtonColumn',
+            'htmlOptions'=>array('style'=>'width: 50px'),
+            'template'=>'{view}'
+        ),
     );
 
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
