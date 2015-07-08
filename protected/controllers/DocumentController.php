@@ -58,11 +58,14 @@ class DocumentController extends Controller{
             'value'=>function($data) { 
                         return CHtml::link($data->publication_number?$data->publication_number:'n/d', "", array("onclick"=>"javascript:showMe(".$data->id.",'view')"));                   
                 },
+                        'htmlOptions'=>array('width'=>'20px'),
+
           //  'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
             ),   
         array('name'=>'subject'),
-       array('name'=>'Protocollo / N. Atto',
-             'value'=>($date->protocol_number)?$date->protocol_number:$date->act_number."\nDel: ".$data->act_date
+       array('name'=>'Protocollo - N. Atto',
+             'value'=>($date->protocol_number)?$date->protocol_number:$date->act_number."\nDel: ".$data->act_date,
+            'htmlOptions'=>array('width'=>'1%'),
            ),
       array('name'=>'document_type_id',
               'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
