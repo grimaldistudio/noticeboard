@@ -144,6 +144,8 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     }
     
     $criteria->addSearchCondition('document_type', $id, true, 'AND');
+    
+    $criteria->addCondition('publication_requested = 1');
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'act_date DESC';
