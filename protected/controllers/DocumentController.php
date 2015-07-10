@@ -147,7 +147,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
     $criteria->addCondition('publication_requested = 1');
     
-    $criteria->addCondition('date(NOW()) >= date(publication_date_from)');
+    $criteria->addCondition('date(NOW()) >= date(publication_date_from) OR publication_date_from = NULL');
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'act_date DESC';
