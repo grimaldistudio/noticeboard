@@ -164,10 +164,10 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
  $columns = array(       
       //  array('name'=>'protocol_number'),
         array(
-            'name'=>'publication_number',
+            'name'=>'act_number',
             'type'=>'raw',
            'value'=>function($data) { 
-                        return CHtml::link($data->publication_number?$data->publication_number:$data->identifier, "", array("onclick"=>"javascript:showMe(".$data->id.",'ViewFilterByDocumentType')"));                   
+                        return CHtml::link($data->act_number, "", array("onclick"=>"javascript:showMe(".$data->id.",'ViewFilterByDocumentType')"));                   
                 },  
                         ),
         array('name'=>'name'),
