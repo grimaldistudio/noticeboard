@@ -167,7 +167,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
             'name'=>'act_number',
             'type'=>'raw',
            'value'=>function($data) { 
-                        return CHtml::link($data->act_number, "", array("onclick"=>"javascript:showMe(".$data->id.",'ViewFilterByDocumentType')"));                   
+                        return CHtml::link(($data->act_number)?$data->act_number:'Prot. N. '.$data->identifier, "", array("onclick"=>"javascript:showMe(".$data->id.",'ViewFilterByDocumentType')"));                   
                 },  
                         ),
         array('name'=>'name'),
