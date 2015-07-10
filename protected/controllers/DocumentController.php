@@ -37,6 +37,7 @@ class DocumentController extends Controller{
     }    
     
     $criteria->addCondition('DATE(NOW()) BETWEEN DATE(publication_date_from) AND DATE(publication_date_to)');    
+    $criteria->addCondition('status = 1'); 
  
     $sort = new EDTSort('Document', $sortableColumnNamesArray);
     $sort->defaultOrder = 'id';
