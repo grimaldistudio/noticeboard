@@ -146,6 +146,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     $criteria->addSearchCondition('document_type', $id, true, 'AND');
     
     $criteria->addCondition('publication_requested = 1');
+    $criteria->addCondition('status = 1');
     
     $criteria->addCondition('date(NOW()) >= date(publication_date_from) OR publication_date_from IS NULL');
  
