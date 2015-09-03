@@ -18,7 +18,8 @@ else
 <a name="detail-view"></a>
 <div id="detail"></div>
 
-<?php/* $this->widget('bootstrap.widgets.BootGridView', array(
+<?php 
+/* $this->widget('bootstrap.widgets.BootGridView', array(
     'id'=>'documents_gridview',
     'dataProvider'=>$model->search(),
     'template'=>"{items}\n{pager}",
@@ -47,7 +48,8 @@ else
         ),
     ),
     'filter'=>$model
-)); */?>
+)); */
+?>
 <?php
 Yii::app()->clientScript->registerScript("showMe", 
         '
