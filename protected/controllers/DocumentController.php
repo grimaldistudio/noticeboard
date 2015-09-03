@@ -39,7 +39,7 @@ class DocumentController extends Controller{
     $criteria->addCondition('DATE(NOW()) BETWEEN DATE(publication_date_from) AND DATE(publication_date_to)');    
     $criteria->addCondition('status = 1'); 
  
-    $sort = new EDTSort('Document', $sortableColumnNamesArray);
+    $sort = new EDTSort('Document', array('document_type'));
     $sort->defaultOrder = 'id';
     
     $pagination = new EDTPagination();
@@ -150,7 +150,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
     
     $criteria->addCondition('date(NOW()) >= date(publication_date_from) OR publication_date_from IS NULL');
  
-    $sort = new EDTSort('Document', $sortableColumnNamesArray);
+    $sort = new EDTSort('Document', array('document_type'));
     $sort->defaultOrder = 'act_date DESC';
     
     $pagination = new EDTPagination();
