@@ -52,50 +52,10 @@ class DocumentController extends Controller{
 
 
  $columns = array(       
-      //  array('name'=>'protocol_number'),
-        array(
-            'name'=>'publication_number',
-            'type'=>'raw',
-            'value'=>function($data) { 
-                        return CHtml::link($data->publication_number?$data->publication_number:'n/d', "", array("onclick"=>"javascript:showMe(".$data->id.",'view')"));                   
-                },
-                        'htmlOptions'=>array('width'=>'20px'),
-
-          //  'value'=>'CHtml::ajaxLink($data->publication_number?$data->publication_number:\'n/d\',array("document/view","id"=>$data->id), array("update"=>"#detail", "beforeSend" => "function() { $(\'#detail\').addClass(\'loading\'); $(\'body,html\').animate({scrollTop: $(\'a[name=detail-view]\').offset().top }, 1000); }") )',
-            ),   
-        array('name'=>'subject','htmlOptions'=>array('style'=>'min-width:350px'),),
-       array('name'=>'act_number',
-             'header'=>'Protocollo/Atto e Data',
-              'type'=>'raw',
-             'value'=>'($data->protocol_number)?"N. ".$data->protocol_number."<br />del ".$data->act_date:"N. ".$data->act_number."<br />del ".$data->act_date', 
-           ),
-      array('name'=>'document_type_id',
-              'value'=>'$data->document_type?$data->document_type->name:\'n/d\'',
-              'filter'=>CHtml::listData(DocumentType::model()->findAll(), 'id', 'name')
-             ),
-     //'publication_date_from',
-     // 'publication_date_to',
-       // array('name'=>'act_number'),
-        array('name'=>'entity_id',
-              'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
-              'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
-             ),
-                        array('name'=>'periodo',
-                            'header'=> "Periodo esposizione",
-                            'type'=>'raw',
-                            'value'=>'"Dal ".date("d/m/Y",strtotime($data->publication_date_from))."<br />al ".date("d/m/Y",strtotime($data->publication_date_to))',
-                            )
-   //     array('name'=>'proposer_service_id',
-   //           'filter'=>CHtml::listData(ProposerService::model()->findAll(), 'id', 'name'),
-   //           'value'=>'$data->proposer_service?$data->proposer_service->name:\'n/d\''
-   //          ),
-//        array(
-//            'class'=>'bootstrap.widgets.BootButtonColumn',
-//            'htmlOptions'=>array('style'=>'width: 50px'),
-//            'template'=>'{view}'
-//        ),
+        array('name'=>'protocol_number'),
+     
     );
-/*
+
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'id'            => 'table',
       'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
@@ -115,7 +75,7 @@ $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
     
     
 ));
-*/
+
 if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
   $this->render('list', array('widget' => $widget,));
   return;
