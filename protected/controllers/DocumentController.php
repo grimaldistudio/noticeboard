@@ -53,7 +53,6 @@ class DocumentController extends Controller{
 
  $columns = array(       
       //  array('name'=>'protocol_number'),
-     /*
         array(
             'name'=>'publication_number',
             'type'=>'raw',
@@ -77,8 +76,6 @@ class DocumentController extends Controller{
      //'publication_date_from',
      // 'publication_date_to',
        // array('name'=>'act_number'),
-      * 
-      */
         array('name'=>'entity_id',
               'filter'=>array_merge(array('0'=>Yii::app()->params['entity']), CHtml::listData(Entity::model()->findAll(), 'id', 'name')),
               'value'=>'$data->entity?$data->entity->name:Yii::app()->params[\'entity\']'
@@ -98,7 +95,7 @@ class DocumentController extends Controller{
 //            'template'=>'{view}'
 //        ),
     );
-
+/*
 $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
  'id'            => 'table',
       'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
@@ -118,7 +115,7 @@ $widget=$this->createWidget('ext.EDataTables.EDataTables', array(
     
     
 ));
-
+*/
 if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
   $this->render('list', array('widget' => $widget,));
   return;
