@@ -96,7 +96,7 @@ class DocumentController extends Controller{
 //        ),
     );
 
-$widget=$this->createWidget('ext.EDataTables.EDataTables', array(
+$widget=$this->createWidget('ext.edatatables.EDataTables', array(
  'id'            => 'table',
       'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
                              'itemsCssClass'=>'table table-striped table-bordered table-hover',
@@ -195,7 +195,7 @@ if (!Yii::app()->getRequest()->getIsAjaxRequest()) {
 //        ),
     );
 
-$widget=$this->createWidget('ext.EDataTables.EDataTables', array(
+$widget=$this->createWidget('ext.edatatables.EDataTables', array(
  'id'            => 'table',
       'datatableTemplate' => "<'row'<'large-6 columns'l><'large-6 columns'f>r>t<'row'<'large-6 columns'i><'large-6 columns'p>>",
                              'itemsCssClass'=>'table table-striped table-bordered table-hover',

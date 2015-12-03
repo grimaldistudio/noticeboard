@@ -94,7 +94,7 @@ Use similar to CGridView. If displayed in a normal call just run the widget. To 
 The action in a controller:
 ~~~
 [php]
-$widget=$this->createWidget('ext.EDataTables.EDataTables', array(
+$widget=$this->createWidget('ext.edatatables.EDataTables', array(
  'id'            => 'products',
  'dataProvider'  => $dataProvider,
  'ajaxUrl'       => Yii::app()->getBaseUrl().'/products/index',
