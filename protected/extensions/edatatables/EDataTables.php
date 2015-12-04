@@ -646,7 +646,7 @@ JavaScript;
         foreach ($cssFiles as $cssFile) {
             $cs->registerCssFile((strpos($cssFile, '/') === false ? $baseScriptUrl.'/css/' : '').$cssFile);
         }
-        $cs->registerScriptFile($vendorScriptUrl.'/js/jquery.dataTables'.(YII_DEBUG ? '' : '.min').'.js');
+       // $cs->registerScriptFile($vendorScriptUrl.'/js/jquery.dataTables'.(YII_DEBUG ? '' : '.min').'.js');
         if ($configurable || $registerJUI) {
             $cs->registerCoreScript('jquery.ui');
         }
