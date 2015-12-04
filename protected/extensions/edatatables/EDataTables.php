@@ -102,9 +102,9 @@ class EDataTables extends CGridView
      * assets dir will not be prepended to it.
      */
     public $cssFiles = array(
-        'demo_table_jui.css',
-        'jquery.dataTables_themeroller.css',
-        'jquery-ui-1.8.17.custom.css',
+      //  'demo_table_jui.css',
+       // 'jquery.dataTables_themeroller.css',
+      //  'jquery-ui-1.8.17.custom.css',
     );
 
     /**
