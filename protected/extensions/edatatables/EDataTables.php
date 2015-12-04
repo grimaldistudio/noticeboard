@@ -639,7 +639,7 @@ JavaScript;
     {
         $ds = DIRECTORY_SEPARATOR;
         $baseScriptUrl = Yii::app()->getAssetManager()->publish(dirname(__FILE__).$ds.'assets');
-        $vendorScriptUrl = Yii::app()->getAssetManager()->publish(dirname(__FILE__)."{$ds}..{$ds}..{$ds}datatables{$ds}datatables{$ds}media");
+       // $vendorScriptUrl = Yii::app()->getAssetManager()->publish(dirname(__FILE__)."{$ds}..{$ds}..{$ds}datatables{$ds}datatables{$ds}media");
 
         $cs = Yii::app()->getClientScript();
         $cs->registerCoreScript('jquery');
